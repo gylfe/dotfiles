@@ -1,0 +1,12 @@
+# とりあえず無視
+/*
+/.*
+
+# 目をかけてやってもいい
+!/.gitignore
+!template/
+!vimset/
+!snipetts/
+!neovundle.vim.git/
+
+# 頑として無視

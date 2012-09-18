@@ -1,0 +1,16 @@
+﻿# とりあえず無視
+/*
+/.*
+
+# 目をかけてやってもいい
+!/.gitignore
+!/.gitmodules
+!/README.md
+!luakit/
+!vim/
+!x/
+!zsh/
+
+# 頑として無視
+.DS_Store
+

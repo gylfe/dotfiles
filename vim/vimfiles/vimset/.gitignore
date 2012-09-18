@@ -1,0 +1,21 @@
+# とりあえず無視
+/*
+/.*
+
+# 目をかけてやってもいい
+!/.gitignore
+!/.vimrc.apperance
+!/.vimrc.baasic
+!/.vimrc.bundle
+!/.vimrc.colors
+!/.vimrc.completeion
+!/.vimrc.editing
+!/.vimrc.encoding
+!/.vimrc.indent
+!/.vimrc.keymap
+!/.vimrc.misc
+!/.vimrc.moving
+!/.vimrc.plugin_setting
+!/.vimrc.search
+
+# 頑として無視

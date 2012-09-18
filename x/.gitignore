@@ -1,0 +1,11 @@
+﻿# とりあえず無視
+/*
+/.*
+
+# 目をかけてやってもいい
+!/.gitignore
+!/.awesome
+!/.Xdefaults
+!/.Xmodmap
+!/.Xresources
+# 頑として無視

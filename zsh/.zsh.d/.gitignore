@@ -1,0 +1,11 @@
+﻿# とりあえず無視
+/*
+/.*
+
+# 目をかけてやってもいい
+!/.gitignore
+!/git.zsh
+!/incr-0.2.zsh
+!auto-fu.zsh.git/
+
+# 頑として無視

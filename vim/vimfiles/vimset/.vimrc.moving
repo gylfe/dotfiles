@@ -1,0 +1,57 @@
+" Moving ===============================================
+" カーソルを表示行で移動する。論理行移動は<C-n>,<C-p>
+nnoremap h <Left>
+nnoremap j gj
+nnoremap k gk
+nnoremap l <Right>
+nnoremap <Down> gj
+nnoremap <Up>   gk
+
+" 0, 9で行頭、行末へ
+nmap 1 0
+nmap 0 ^
+nmap 9 $
+
+" insert mode での移動
+inoremap Ob <Down>
+inoremap Oa <up>
+inoremap Od <Left>
+inoremap Oc <Right>
+
+if !has('gui_running')
+    set notimeout
+    set ttimeout
+    set timeoutlen=50
+endif
+
+"inoremap  <Down> <C-c>gja
+"inoremap  <up> <C-c>gka
+
+inoremap  <C-e> <END>
+inoremap  <C-a> <HOME>
+
+" インサートモードでもhjklで移動（Ctrl押すけどね）
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+
+
+"<space>j, <space>kで画面送り
+noremap <Space>j <C-f>
+noremap <Space>k <C-b>
+
+" CTRL-hjklでウィンドウ移動
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+
+" タブ移動
+nnoremap <special> <C-h> gT
+nnoremap <special> <C-l> gt
+
+" タブ入れ替え
+" TabShift.vim plugin
+nnoremap <silent> <special> <C-p> :call TabShift(-1)<CR>
+nnoremap <silent> <special> <C-n> :call TabShift(+1)<CR>

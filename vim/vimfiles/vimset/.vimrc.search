@@ -1,0 +1,16 @@
+" Search
+set incsearch     " incremental search on
+set hlsearch      " 検索語のハイライト
+set ignorecase   " 大文字小文字を区別しない
+set smartcase    " 大文字が含まれていた場合は区別する
+set wrapscan     " ファイル終端までいったら最初に戻る
+
+
+" 検索語が画面の真ん中に来るようにする
+nmap n nzz
+nmap N Nzz
+nmap * *zz
+nmap # #zz
+nmap g* g*zz
+nmap g# g#zz
+

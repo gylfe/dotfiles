@@ -1,0 +1,116 @@
+" Neobundle =========================================
+" general ====================================
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/neobundle.vim.git/ 
+call neobundle#rc()
+
+"plugins =====================================
+"original repos on  github
+NeoBundle 'tpope/vim-fugitive'
+"vim-scripts repos
+NeoBundle 'rails.vim'
+" non github repos
+NeoBundle 'git://git.wincent.com/command-t.git'
+
+"Bundle Script
+NeoBundle 'Shougo/neobundle.vim',{'rtp': 'neobundle.vim.git/'}
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplcache-snippets-complete'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/vimproc',{
+  \ 'build' : {
+  \   'windows':'echo"Sorry, cannot update vimproc binary file in winsows."',
+  \   'unix':'make -f make_unix.mak',
+  \   },
+  \}
+
+NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'ujihisa/vimshell-ssh'
+NeoBundle 'ack.vim'
+NeoBundle 'Smooth-Scroll'
+NeoBundle 'vim-scripts/sudo.vim'
+NeoBundle 'sjl/gundo.vim' "undo tree 
+NeoBundle 'fuenor/im_control.vim' "IM Control
+NeoBundle 'h1mesuke/vim-alignta' "コード整形
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'fuenor/qfixgrep'
+NeoBundle 'kana/vim-smartinput'
+"ColorScheme
+NeoBundle 'tomasr/molokai'
+NeoBundle 'vim-scripts/hickop'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'vim-scripts/Ubloh-Color-Scheme'
+NeoBundle 'Lokaltog/vim-powerline'
+"ruby
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-cucumber'
+"perl
+NeoBundle 'petdance/vim-perl'
+NeoBundle 'hotchpotch/perldoc-vim'
+"js
+	"NeoBundle 'JavaScript-syntax'
+	"NeoBundle 'itspriddle/vim-javascript-indent'
+"HTML
+NeoBundle 'taichouchou2/html5.vim'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'cakebaker/scss-syntax.vim' 
+	"NeoBundle 'vim-scripts/css_color.vim' " show colorcode
+"markdown
+NeoBundle 'hallison/vim-markdown'
+NeoBundle 'mivok/vimtodo'
+NeoBundle 'glidenote/memolist.vim'
+"Comment
+NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'tpope/vim-surround'
+
+"Ref
+"リファレンスビューアー。
+NeoBundle 'thinca/vim-ref'
+"英辞郎、CPAN、jQAPI、コトバンク、Wikipediaを参照(Refソース)。 
+NeoBundle 'mojako/ref-sources.vim.git'
+"Answer.com,ReversoHyper Dictionary,Longman,Oxford Dictionaries,Synonym.comを参照 
+NeoBundle 'mfumi/ref-dicts-en.git'
+
+"Text Object
+NeoBundle 'kana/vim-textobj-user' 
+NeoBundle 'kana/vim-textobj-entire' "バッファー全体(text object)
+NeoBundle 'kana/vim-textobj-line' "現在の行(text object)
+NeoBundle 'thinca/vim-textobj-between' "任意の文字の間(text object)
+NeoBundle 'kana/vim-textobj-datetime' "日付・時間(text object)
+NeoBundle 'kana/vim-textobj-indent' "インデント(text object)
+NeoBundle 'kana/vim-textobj-fold' "折り畳み(text object)
+"Service ===========
+	"NeoBundle 'kakkyz81/evervim'
+NeoBundle 'mrtazz/simplenote.vim'
+"Twitter ===========
+NeoBundle 'basyura/TweetVim',{'depends':'basyura/twibill.vim'}
+NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'basyura/bitly.vim'
+NeoBundle 'yomi322/neco-tweetvim'
+NeoBundle 'yomi322/unite-tweetvim'
+NeoBundle 'osyo-manga/TweetVim-powerline-theme'
+"MPD
+NeoBundle 'mfumi/unite-mpc'
+NeoBundle 'mfumi/mpc.vim',{'depends':'mattn/webapi-vim'}
+"EasterEgg
+NeoBundle 'mattn/benchvimrc-vim'
+	"NeoBundle 'koron/u-nya-vim'
+
+let $PATH = $PATH . '/opt/local/bin'
+
+filetype indent on
+filetype plugin on
+
+if neobundle#exists_not_installed_bundles()
+	echomsg 'Not installed bundles: ' .
+		\ string(neobundle#get_not_installed_bundle_names())
+	echomsg 'Please execute "NeoBundleInstall" command. '
+endif

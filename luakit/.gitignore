@@ -1,0 +1,16 @@
+# とりあえず無視
+/*
+/.*
+
+# 目をかけてやってもいい
+!/.gitignore
+!/binds.lua
+!/global.lua
+!/modes.lua
+!/rc.lua
+!/theme.lua
+!/webview.lua
+!/window.lua
+!plugins/
+# 頑として無視
+

@@ -1,0 +1,11 @@
+﻿# とりあえず無視
+/*
+/.*
+
+# 目をかけてやってもいい
+!/.gitignore
+!/.zshrc
+!/.zshenv
+!/.zshlogin
+!.zsh.d/
+# 頑として無視
