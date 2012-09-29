@@ -3,14 +3,13 @@
 
 # base setting
 HISTSIZE=2048
-HISTFILE=~/.zsh/.zshistry
+HISTFILE=~/.log/.zshistry
 SAVEHIST=5000
-setopt extended_history
+setopt extended_history # zshの起動と終了時刻をhistoryに書き込む
 setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt inc_append_history 
 setopt share_history #zshプロセス間でヒストリ共有
-
 
 # Lang
 export LANG=ja_JP.UTF-8
@@ -21,18 +20,17 @@ export LC_CTYPE="ja_JP.UTF-8"
 setopt complete_aliases     # aliased ls needs if file/dir completions work
 
 alias ls='ls --color'
+alias ll='ls -al --color'
+alias la='ls -a --color'
 alias vi='vim'
-alias ..='cd ..'
 alias c='clear'
-alias rm='rm --interactive'
+alias rm='trash-put -i'
 alias cp='cp --interactive'
 alias ping='ping -c 5'
 alias diff='colordiff'
 alias grep='grep --color=auto'
-alias ,doc='cd ~/dict/dropbox/code/Dropbox/docs'
-alias ,fuginn='cd ~/dict/dropbox/code/Dropbox/docs && ls -a'
 alias xterm='xterm -en utf8'
-
+alias less='less -R'
 alias myhome='sudo netcfg myhome'
 alias awetest="Xephyr -ac -br -noreset -screen 800x600 :1 & sleep 1 && DISPLAY=:0.0 awesome -c ~/.config/awesome/rc.lua"
 alias dropboxw='sh $HOME/dict/dropbox/automate_dropbox.sh'
@@ -42,6 +40,12 @@ alias volp='amixer sset Master 5%+'
 alias volm='amixer sset Master 5%-'
 alias memfree='sudo sync && sudo sysctl -w vm.drop_caches=3'
 alias mpd='sudo mpd && mpdscribble'
+
+alias ..='cd ..'
+alias ,doc='cd ~/dict/dropbox/code/Dropbox/docs && ls -a'
+alias ,code='cd ~/dict/dropbox/code/Dropbox'
+alias ,pri='cd ~/dict/dropbox/private/Dropbox'
+alias ,script='cd ~/dict/script && ls -a --color'
 
 # Key Binding
 bindkey -v
@@ -59,7 +63,16 @@ setopt complete_in_word
 setopt glob_complete
 setopt hist_expand
 setopt numeric_glob_sort
+setopt pushd_ignore_dups # 同じディレクトリをpushdしない
+setopt auto_menu # TABで補完候補切り替え
+setopt auto_param_keys # ()等の自動補完
+setopt magic_equal_subst # --prefix=/usr等の=以降も補完
+setopt mark_dirs #directoey末尾に/を付加
+setopt print_eight_bit # 日本語ファイル名等, 8bitを通す
 
+# zstyle ':completion:*:default' menu select=1
+zstyle ':completion:*' verbose yes # 補完の表示を過剰にする 
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'  # 補完時に文字の大小を区別しない
 # Prompt
 autoload -Uz promptinit
 promptinit
@@ -107,20 +120,20 @@ esac
 
 # set terminal title including current directory
 # ***Mac***
-case "${TERM}" in
-kterm*|xterm*)
-    precmd() {
-        echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
-    }
-    export LSCOLORS=cxfxcxdxbxegedabagacad
-    export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-    zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
-
-    #export LSCOLORS=gxfxcxdxbxegedabagacad
-    #export LS_COLORS='di=36:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-    #zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
-    ;;
-esac
+# case "${TERM}" in
+# kterm*|xterm*)
+#     precmd() {
+#         echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
+#     }
+#     export LSCOLORS=cxfxcxdxbxegedabagacad
+#     export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+#     zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+# 
+#     #export LSCOLORS=gxfxcxdxbxegedabagacad
+#     #export LS_COLORS='di=36:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+#     #zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+#     ;;
+# esac
 
 
 # Autoload

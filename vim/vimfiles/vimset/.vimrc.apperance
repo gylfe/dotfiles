@@ -28,7 +28,7 @@ if has("autocmd")
     \ endif
 endif
 
-set statusline+=%{IMStatus('JFixed')}
+" set statusline+=%{IMStatus('JFixed')}
 
 "Powerline =================================================
 set t_Co=256

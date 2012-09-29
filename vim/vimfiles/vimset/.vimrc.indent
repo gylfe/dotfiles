@@ -1,7 +1,8 @@
 " Tab & Space
-set tabstop=2       " タブ幅
+set autoindent       " auto indent on
+set nocindent
+set tabstop=4       " タブ幅
 set shiftwidth=4   " cindent や << / >> のインデント幅
 set softtabstop=0  " tab キーを押したときに挿入される幅. 0はtabstopの設定
-set autoindent       " auto indent on
 set expandtab        " タブを空白文字に置換する
 

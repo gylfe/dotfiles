@@ -11,11 +11,11 @@ endif
 
 
 "NormalModeでのIME無効化？
-augroup InsModeAu
-  autocmd!
-  autocmd InsertEnter,CmdwinEnter * set noimdisable
-  autocmd InsertLeave,CmdwinLeave * set imdisable
-augroup END
+" augroup InsModeAu
+"   autocmd!
+"   autocmd InsertEnter,CmdwinEnter * set noimdisable
+"   autocmd InsertLeave,CmdwinLeave * set imdisable
+" augroup END
 
 "clipboard共通化
 if has("clipboard")

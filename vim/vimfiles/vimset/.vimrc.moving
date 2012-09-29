@@ -13,15 +13,15 @@ nmap 0 ^
 nmap 9 $
 
 " insert mode での移動
-inoremap Ob <Down>
-inoremap Oa <up>
-inoremap Od <Left>
-inoremap Oc <Right>
+" inoremap Ob <Down>
+" inoremap oa oa <u<up>
+" inoremap Od <Left>
+" inoremap Oc <Right>
 
 if !has('gui_running')
     set notimeout
     set ttimeout
-    set timeoutlen=50
+    set ttimeoutlen=100
 endif
 
 "inoremap  <Down> <C-c>gja

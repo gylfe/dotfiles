@@ -1,0 +1,12 @@
+#!/bin/zsh
+if test $# -eq 0;then
+    echo "error: argument is required"
+    exit
+else
+    KEY=$(python2 -c "import urllib;print urllib.quote_plus('$*')")
+    URI='http://ejje.weblio.jp/content/'"$KEY"
+    wget -q -O - "$URI"|\
+        sed -ne '/^ *<!-- interest_match_relevant_zone_start -->$/,/^ *<!-- interest_match_relevant_zone_end -->$/p'|\
+        w3m -dump -T text/html|\
+        less
+fi

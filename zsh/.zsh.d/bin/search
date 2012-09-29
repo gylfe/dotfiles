@@ -1,0 +1,46 @@
+function search() {
+    encoded=$(perl -MURI::Escape -e 'print uri_escape(shift)' "$1")
+
+    echo "0 : bing.com"
+    echo "1 : google.co.jp"
+    echo "2 : goo dictionary(all)"
+    echo "3 : eijiro"
+    echo "4 : google translation"
+    echo "5 : excite translation"
+    echo "6 : wikipedia(jp)"
+    echo "7 : wikipedia(en)"
+    echo -n "select number: "
+    read number
+
+    case "$number" in
+        0)
+            luakit -new-tab 'http://www.bing.com/search?q='$encoded &
+            ;;
+        1)
+            luakit -new-tab 'http://www.google.co.jp/search?q='$encoded'&hl=ja&ie=UTF_8&lr=lang_ja' &
+            ;;
+        2)
+            luakit -new-tab 'http://dictionary.goo.ne.jp/srch/all/'$encoded'/m0e/' &
+            ;;
+        3)
+            luakit -new-tab 'http://eow.alc.co.jp/'$encoded'/UTF-8/' &
+            ;;
+        4)
+            luakit -new-tab 'http://translate.google.com/translate_t?hl=ja&langpair=en%7Cja&text='$encoded &
+            ;;
+        5)
+            luakit -new-tab 'http://www.excite.co.jp/world/english/?before='$encoded'&wb_lp=ENJA' &
+            ;;
+        6)
+            luakit -new-tab 'http://ja.wikipedia.org/wiki/'$encoded &
+            ;;
+        7)
+            luakit -new-tab 'http://en.wikipedia.org/wiki/'$encoded &
+            ;;
+        *)
+            echo "Unknown number $number" >&2
+            ;;
+    esac > /dev/null
+}
+
+search

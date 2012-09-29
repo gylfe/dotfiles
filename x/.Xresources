@@ -19,30 +19,44 @@ Xcursor.size: 16
 !color6 = 1,36m
 !color7 = 37m
 !color15 = 1,37m
-*color0:   #151515
+
+! Normal
+! Light
+
+!!black
+*color0:   #666666
+*color8:   #999999
+!!red
 *color1:   #a82200
-*color2:   #086870
-*color3:   #a86500
-*color4:   #30569c
-*color5:   #655799
-*color6:   #4ca4a8
-*color7:   #888888
-*color8:   #8b8f93
 *color9:   #ff3300
-*color10:  #0eb8c7
+!!green
+*color2:   #a2b149
+*color10:  #c3f786
+!!yellow
+*color3:   #a86500
 *color11:  #ff9900
+!!blue
+*color4:   #5e5eff
 *color12:  #4B86F3
-*color13:  #9e88f0
+!!magenta
+*color5:   #b0486e
+*color13:  #dd66ff
+!!cyan
+*color6:   #4ca4a8
 *color14:  #73f7ff
-*color15:  #e1dddd
+!!white
+*color7:   #cccccc
+*color15:  #e8e8e8
 
 !!!Config Urxvt!!!
 
 URxvt.depth: 32
 !URxvt.background: rgba:1500/1500/1500/ffff
 URxvt.termName: rxvt-256color
-URxvt.background:  #151515
+URxvt.background:  #444444
 URxvt.foreground: white
+! URxvt.font: xft:anony for Powerline:pixelsize=15:antialias=true
+! URxvt.boldFont: xft:anony for Powerline:pixelsize=15:antialias=true
 URxvt.font: xft:Ricty for Powerline:pixelsize=15:antialias=true
 URxvt.boldFont: xft:Ricty for Powerline:pixelsize=15:antialias=true
 URxvt.geometry: 70x30
@@ -57,7 +71,7 @@ URxvt.cursorColor: #404040
 URxvt.transparent: true
 URxvt.tintColor: white
 URxvt.shading: 50
-URxvt.saveLines: 4096
+URxvt.saveLines:2048
 URxvt.preeditType: Root
 URxvt.urllauncher: luakit
 !URxvt.perl-lib: ~/dict/script/perl/lib/

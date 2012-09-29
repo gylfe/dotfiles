@@ -6,6 +6,8 @@
 !/.gitignore
 !/git.zsh
 !/incr-0.2.zsh
+!bin/
+!func/
 !auto-fu.zsh.git/
 
 # 頑として無視

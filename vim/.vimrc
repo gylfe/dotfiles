@@ -1,6 +1,5 @@
 "NeoBundle.vimで管理してるpluginを読み込む
 source ${HOME}/.vim/vimset/.vimrc.bundle
-
 "基本設定
 source ${HOME}/.vim/vimset/.vimrc.basic
 "インデント設定
