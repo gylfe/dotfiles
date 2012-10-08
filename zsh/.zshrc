@@ -4,7 +4,7 @@
 # base setting
 HISTSIZE=2048
 HISTFILE=~/.log/.zshistry
-SAVEHIST=5000
+SAVEHIST=8096
 setopt extended_history # zshの起動と終了時刻をhistoryに書き込む
 setopt hist_ignore_dups
 setopt hist_ignore_space
@@ -31,15 +31,16 @@ alias diff='colordiff'
 alias grep='grep --color=auto'
 alias xterm='xterm -en utf8'
 alias less='less -R'
+
+alias getip='wget -q -O - ipcheck.mycurse.net'
+alias memfree='sudo sync && sudo sysctl -w vm.drop_caches=3'
 alias myhome='sudo netcfg myhome'
-alias awetest="Xephyr -ac -br -noreset -screen 800x600 :1 & sleep 1 && DISPLAY=:0.0 awesome -c ~/.config/awesome/rc.lua"
 alias dropboxw='sh $HOME/dict/dropbox/automate_dropbox.sh'
 alias mbplack='cd /home/gylfe/git/markdown-binder && plackup'
-alias getip='wget -q -O - ipcheck.mycurse.net'
 alias volp='amixer sset Master 5%+'
 alias volm='amixer sset Master 5%-'
-alias memfree='sudo sync && sudo sysctl -w vm.drop_caches=3'
 alias mpd='sudo mpd && mpdscribble'
+alias awetest="Xephyr -ac -br -noreset -screen 800x600 :1 & sleep 1 && DISPLAY=:0.0 awesome -c ~/.config/awesome/rc.lua"
 
 alias ..='cd ..'
 alias ,doc='cd ~/dict/dropbox/code/Dropbox/docs && ls -a'
@@ -69,6 +70,7 @@ setopt auto_param_keys # ()等の自動補完
 setopt magic_equal_subst # --prefix=/usr等の=以降も補完
 setopt mark_dirs #directoey末尾に/を付加
 setopt print_eight_bit # 日本語ファイル名等, 8bitを通す
+setopt nonomatch # よう分からんが no matches foundと怒られるんで
 
 # zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' verbose yes # 補完の表示を過剰にする 

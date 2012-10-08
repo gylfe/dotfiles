@@ -11,3 +11,7 @@ add control = Control_L
 
 keysym Muhenkan = Super_L
 
+! keycode  49 = Zenkaku_Hankaku Kanji Zenkaku_Hankaku Kanji 
+! keycode 101 = Hiragana_Katakana Romaji Hiragana_Katakana Romaji
+keycode  49 = Hiragana_Katakana Romaji Hiragana_Katakana Romaji
+keycode 101 = Zenkaku_Hankaku Kanji Zenkaku_Hankaku Kanji

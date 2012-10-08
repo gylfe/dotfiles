@@ -53,7 +53,7 @@ Xcursor.size: 16
 URxvt.depth: 32
 !URxvt.background: rgba:1500/1500/1500/ffff
 URxvt.termName: rxvt-256color
-URxvt.background:  #444444
+URxvt.background:  #000000
 URxvt.foreground: white
 ! URxvt.font: xft:anony for Powerline:pixelsize=15:antialias=true
 ! URxvt.boldFont: xft:anony for Powerline:pixelsize=15:antialias=true
@@ -85,11 +85,11 @@ URxvt.urllauncher: luakit
 !Config XTerm
 XTerm*utf8: 1
 XTerm*locale: true
-XTerm*faceName: 'Meiryo'
+XTerm*faceName: 'Ricty'
 XTerm*faceSize: 10
-XTerm*cjkWidth: true
+!XTerm*cjkWidth: true
 XTerm*background: black
-XTerm*foreground: blue
+XTerm*foreground: white
 XTerm*saveLines: 2048
 XTerm*geometry: 80x20+300+100
 

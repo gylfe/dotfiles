@@ -1,4 +1,6 @@
-" Moving ===============================================
+" ----------------------------------------------------------
+" Moving
+"
 " カーソルを表示行で移動する。論理行移動は<C-n>,<C-p>
 nnoremap h <Left>
 nnoremap j gj
@@ -18,11 +20,11 @@ nmap 9 $
 " inoremap Od <Left>
 " inoremap Oc <Right>
 
-if !has('gui_running')
+" if !has('gui_running')
     set notimeout
     set ttimeout
     set ttimeoutlen=100
-endif
+" endif
 
 "inoremap  <Down> <C-c>gja
 "inoremap  <up> <C-c>gka
@@ -35,7 +37,6 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
-
 
 "<space>j, <space>kで画面送り
 noremap <Space>j <C-f>

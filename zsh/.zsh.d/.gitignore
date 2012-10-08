@@ -4,10 +4,11 @@
 
 # 目をかけてやってもいい
 !/.gitignore
-!/git.zsh
-!/incr-0.2.zsh
 !bin/
 !func/
 !auto-fu.zsh.git/
-
+!zaw.git/
+!/git.zsh
+!/incr-0.2.zsh
+!/./zsh.mime
 # 頑として無視

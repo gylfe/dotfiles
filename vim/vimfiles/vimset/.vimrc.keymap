@@ -1,5 +1,7 @@
-"Key Mapping=======================================================================
-""plugin keymap
+" --------------------------------------------------------------
+" Key Mapping
+"
+" plugin keymap
 nmap U :<C-u>GundoToggle<CR>
 inoremap <silent> <C-a> <C-r>=IMState ('FixMode')<CR>
 
@@ -8,7 +10,18 @@ inoremap <silent> <C-a> <C-r>=IMState ('FixMode')<CR>
 map t :tabnew<Space>
 
 " カーソルの位置で改行
-nmap <silent> <special> <S-k> i<CR><Esc>
+nnoremap <silent> <special> <S-k> i<CR><Esc>
+" enter to bkankLine in normal mode
+noremap <CR> o<ESC>
+" 
+inoremap <C-e><C-o> <ESC>o
+inoremap <C-e><C-O> <ESC>O
+" Hacks
+"noremap ; :
+"noremap : ;
+cnoremap <Leader><Leader> ~/
+" b でブレース 対応する括弧(){}にジャンプ
+nnoremap <tab> %
 
 
 " http://hatena.g.hatena.ne.jp/hatenatech/20060515/1147682761
@@ -19,13 +32,6 @@ nmap <silent> <special> <S-k> i<CR><Esc>
 "imap <C-g> <esc>
 "map <C-l> <esc>
 "map <C-g> <esc>
-"make Shift+l(Ctrl + l) an additional ESC
-"noremap L <ESC>
-"noremap <C-l> <ESC>
-"noremap <C-g> <ESC>
-"cnoremap L <C-C>
-"cnoremap <C-l> <C-C>
-"cnoremap <C-g> <C-C>
 " :w など入力時にShift + l でキャンセル
 "cmap <C-l> <C-C>
 "cmap <C-g> <C-C>
@@ -39,8 +45,6 @@ map <C-z> <C-o>
 "map <C-k> D
 " Space で半画面スクロール Ctrl + u で上へ半画面スクロール
 "map <Space> <C-d>
-" Ctrl + a で行頭 本来Ctrl + a は値の増加
-map <C-a> 0
 " すべて選択 ggVG
 " すべてコピー ggyG
 " 行末までコピー y Ctrl + e
@@ -76,22 +80,14 @@ noremap z<CR> <C-W>_
 noremap z0 1<C-W>_
 " z. で均等に
 noremap z. <C-W>=
-" b でブレース 対応する括弧(){}にジャンプ
-nmap b %
 
 
 " memo ===========================================
 " :help a または :h a。分割ウィンドウで表示。scで閉じる。z.で同じサイズに
 " :h ctrl-z。:h insert-index。
 " 
-" アンドゥ u
-" 行の切り取り dd
-" 行のコピー yy
-" 4文字コピー y4
 " 行末までカット Ctrl + k 
 " 画面の一番上に移動  Shift + h  中央 Shift + m  一番下  Shift + l
-" ペースト p
-" 上書き保存 :w
 " ESC = Ctrl + l
 " 下スクロール Ctrl + f
 " 上スクロール Ctrl + b
@@ -158,11 +154,7 @@ nmap b %
 " 半画面下にスクロール 上Ctrl + d  上Ctrl + u 
 " 保存して終了 Shift + zz
 " アンドゥ u。行をまとめてアンドゥ Shift + u。
-" アンドゥのやり直し Ctrl + r
 " 10行めへジャンプ 10 Shift + g
-" 選択スタート v(visual)
-" 行選択スタート  Shift + v
-" 矩形選択スタート Ctrl + v
 " 1行上にスクロール Ctrl + y  下 Ctrl + e
 " 1画面上にスクロール Ctrl + b  下 Ctrl + f
 " sn  次のバッファを表示  sp 前のバッファを表示  
@@ -173,7 +165,6 @@ nmap b %
 " 同じ行の任意の文字にジャンプ fa(aは任意) ta で文字の手前にジャンプ
 " 同じ行の任意の文字にジャンプ fa;(;で繰り返し) fa;,(,で逆方向に繰り返し)
 " p viのyやddでコピー・カットしたものを貼り付け
-" 行を複製 yyp
 " xp 2文字の入れ替え(EmacsではCtrl + t)
 " 下に空白行を挿入して挿入モード o
 " クリップボードの内容貼り付け :a して Ctrl + Shift + v して Ctrl + c
@@ -187,4 +178,3 @@ nmap b %
 " indent追加  >>、  indent解除  <<。 複数行選択しても可能
 " Shift + v で行を選択して、> でindent追加。 >.. で連続
 " Shift + q  Exモード
-" 保存 :w。保存して終了 :wq。保存せず終了 :q!。
