@@ -5,10 +5,10 @@
 # 目をかけてやってもいい
 !/.gitignore
 !/.vimrc.apperance
-!/.vimrc.baasic
+!/.vimrc.basic
 !/.vimrc.bundle
 !/.vimrc.colors
-!/.vimrc.completeion
+!/.vimrc.completion
 !/.vimrc.editing
 !/.vimrc.encoding
 !/.vimrc.indent
