@@ -31,11 +31,11 @@ NeoBundle 'git://github.com/Shougo/vimproc',{
 NeoBundle 'git://github.com/Shougo/unite-ssh'
 NeoBundle 'git://github.com/ujihisa/vimshell-ssh'
 NeoBundle 'git://github.com/ujihisa/unite-colorscheme'
-NeoBundle 'git://github.com/ack.vim'
+NeoBundle 'git://github.com/mileszs/ack.vim'
 NeoBundle 'git://github.com/kien/ctrlp.vim'
 NeoBundle 'git://github.com/sgur/ctrlp-extensions.vim'
 
-NeoBundle 'git://github.com/Smooth-Scroll'
+NeoBundle 'Smooth-Scroll'
 NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'git://github.com/thinca/vim-ref'
 NeoBundle 'git://github.com/tyru/open-browser.vim'
