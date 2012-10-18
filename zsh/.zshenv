@@ -21,9 +21,12 @@ export FPATH=${HOME}/.zsh/func:${FPATH}
 export ZMEMO_DIR=${HOME}/dict/dropbox/code/Dropbox/docs/memo
 # Ruby
 export GEM_HOME=${HOME}/.gem/ruby/1.9.1
-export PATH=${HOME}/.rbenv/bin:${HOME}/.gem/ruby/1.9.1/bin:${PATH}
-eval "$(rbenv init - zsh)"
-source ${HOME}/.rbenv/completions/rbenv.zsh
+export PATH=${HOME}/.gem/ruby/1.9.1/bin:${PATH}
+if [ -f ${HOME}/.rbenv/bin ]; then
+    export PATH=${HOME}/.rbenv/bin
+    eval "$(rbenv init - zsh)"
+    source ${HOME}/.rbenv/completions/rbenv.zsh
+fi
 export RSENSE_HOME=$HOME/.rsense
 # perl
 export PATH=${HOME}/dict/script/perl/bin:${HOME}/.cpanm/bin:${PATH}

@@ -34,20 +34,30 @@ alias less='less -R'
 
 alias getip='wget -q -O - ipcheck.mycurse.net'
 alias memfree='sudo sync && sudo sysctl -w vm.drop_caches=3'
-alias myhome='sudo netcfg myhome'
-alias dropboxw='sh $HOME/dict/dropbox/automate_dropbox.sh'
-alias mbplack='cd /home/gylfe/git/markdown-binder && plackup'
 alias volp='amixer sset Master 5%+'
 alias volm='amixer sset Master 5%-'
 alias mpd='sudo mpd && mpdscribble'
 alias awetest="Xephyr -ac -br -noreset -screen 800x600 :1 & sleep 1 && DISPLAY=:0.0 awesome -c ~/.config/awesome/rc.lua"
 
 alias ..='cd ..'
+alias ,script='cd ~/dict/script && ls -a --color'
+
+case "${OSTYPE}" in
+linux*)
+alias myhome='sudo netcfg myhome'
+alias dropboxw='sh $HOME/dict/dropbox/automate_dropbox.sh'
+alias mbplack='cd /home/gylfe/git/markdown-binder && plackup'
+alias gentoo!='su - && mount /dev/sda? /mnt/gentoo && mount -t proc none /mnt/gentoo/proc &&  mount --rbind /dev /mnt/gentoo/dev && chroot /mnt/gentoo /bin/zsh'
+
 alias ,doc='cd ~/dict/dropbox/code/Dropbox/docs && ls -a'
 alias ,code='cd ~/dict/dropbox/code/Dropbox'
 alias ,pri='cd ~/dict/dropbox/private/Dropbox'
-alias ,script='cd ~/dict/script && ls -a --color'
 
+;;
+cygwin*)
+
+;;
+esac
 # Key Binding
 bindkey -v
 
