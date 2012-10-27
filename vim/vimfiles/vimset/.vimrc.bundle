@@ -27,13 +27,12 @@ NeoBundle 'git://github.com/Shougo/vimproc',{
   \   },
   \}
 
-  "NeoBundle 'Shougo/vimshell'
+    "NeoBundle 'Shougo/vimshell'
+    "NeoBundle 'git://github.com/ujihisa/vimshell-ssh'
 NeoBundle 'git://github.com/Shougo/unite-ssh'
-NeoBundle 'git://github.com/ujihisa/vimshell-ssh'
 NeoBundle 'git://github.com/ujihisa/unite-colorscheme'
 NeoBundle 'git://github.com/mileszs/ack.vim'
 NeoBundle 'git://github.com/kien/ctrlp.vim'
-NeoBundle 'git://github.com/sgur/ctrlp-extensions.vim'
 
 NeoBundle 'Smooth-Scroll'
 NeoBundle 'vim-scripts/sudo.vim'
@@ -41,10 +40,8 @@ NeoBundle 'git://github.com/thinca/vim-ref'
 NeoBundle 'git://github.com/tyru/open-browser.vim'
 NeoBundle 'git://github.com/fuenor/qfixgrep'
 NeoBundle 'git://github.com/kana/vim-submode'
-NeoBundle 'git://github.com/kana/vim-fakeclip'
-NeoBundle 'git://github.com/bouzuya/vim-ibus'
-  "NeoBundle 'git://github.com/fuenor/im_control.vim' "IM Control
  
+NeoBundle 'git://github.com/jimsei/winresizer'
 " ------------------------------------------------------------
 " Coding
 "
@@ -54,6 +51,14 @@ NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides'
 NeoBundle 'git://github.com/sjl/gundo.vim' "undo tree 
 NeoBundle 'git://github.com/kana/vim-smartinput'
 NeoBundle 'git://github.com/kana/vim-tabpagecd'
+
+" ------------------------------------------------------------
+"  Input
+"
+NeoBundle 'git://github.com/bouzuya/vim-ibus'
+    "NeoBundle 'git://github.com/fuenor/im_control.vim' "IM Control
+    "NeoBundle 'git://github.com/anyakichi/skk.vim'
+
 
 " ------------------------------------------------------------
 "Complete
@@ -70,6 +75,15 @@ NeoBundle 'git://github.com/thinca/vim-quickrun'
 NeoBundle 'git://github.com/osyo-manga/unite-quickfix'
 NeoBundle 'git://github.com/osyo-manga/shabadou.vim'
 NeoBundle 'git://github.com/osyo-manga/vim-watchdogs'
+
+" -----------------------------------------------------------
+" Clipboard
+"
+NeoBundle 'git://github.com/vim-scripts/YankRing.vim'
+NeoBundle 'git://github.com/m4i/YankRingSync'
+NeoBundle 'git://github.com/vim-scripts/yanktmp.vim'
+NeoBundle 'git://github.com/sgur/ctrlp-extensions.vim'
+NeoBundle 'git://github.com/kana/vim-fakeclip'
 
 " ------------------------------------------------------------
 " ColorScheme

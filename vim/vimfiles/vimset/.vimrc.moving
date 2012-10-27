@@ -49,8 +49,8 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 
 " タブ移動
-nnoremap <special> <C-h> gT
-nnoremap <special> <C-l> gt
+nnoremap <special> <C-Left> gT
+nnoremap <special> <C-Right> gt
 
 " タブ入れ替え
 " TabShift.vim plugin

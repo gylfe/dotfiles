@@ -1,12 +1,12 @@
 [submodule "vim/vimfiles/neobundle.vim.git"]
 	path = vim/vimfiles/neobundle.vim.git
-	url = git@github.com:Shougo/neobundle.vim.git
+	url = git://github.com/Shougo/neobundle.vim.git
 [submodule "luakit/plugins"]
 	path = luakit/plugins
-	url = https://github.com/mason-larobina/luakit-plugins.git
+	url = git://github.com/mason-larobina/luakit-plugins.git
 [submodule "zsh/.zsh.d/auto-fu.zsh.git"]
 	path = zsh/.zsh.d/auto-fu.zsh.git
-	url = git@github.com:hchbaw/auto-fu.zsh.git
+	url = git://github.com/hchbaw/auto-fu.zsh.git
 [submodule "zsh/.zsh.d/zaw.git"]
 	path = zsh/.zsh.d/zaw.git
 	url = git://github.com/zsh-users/zaw.git
