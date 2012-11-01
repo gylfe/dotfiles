@@ -39,8 +39,9 @@ fi
 
 # Git
 export PATH=${HOME}/git/git-tasukete:${PATH}
- 
 
+# Autoload
+autoload zargs
 
 # path
 typeset -U path cdpath fpath manpath

@@ -11,12 +11,15 @@ setopt hist_ignore_dups  # 直前と同じCLはhistoryぶ追加しない
 setopt hist_ignore_space
 setopt inc_append_history 
 setopt share_history #zshプロセス間でヒストリ共有
+setopt extended_glob  #glob機能拡張
+unsetopt caseglob  #ファイルグロブで大小非区別
 
 REPORTTIME=5  # 5秒以上かかった処理の詳細表示
 
 # Lang ----------------------------
 export LANG=ja_JP.UTF-8
 export LC_CTYPE="ja_JP.UTF-8"
+export LC_TIME="en_US.UTF-8"
 
 # export LANG=ja_JP.eucJP "for Latex
 
@@ -39,11 +42,12 @@ alias less='less -R'
 alias ..='cd ..'
 alias ....='cd ../..'
 alias ......='cd ../../..'
-alias getip='wget -q -O - ipcheck.mycurse.net'
+alias ipget='wget -q -O - ipcheck.mycurse.net'
 alias memfree='sudo sync && sudo sysctl -w vm.drop_caches=3'
 alias volp='amixer sset Master 5%+'
 alias volm='amixer sset Master 5%-'
 alias mpd='sudo mpd && mpdscribble'
+alias td='todo.sh'
 alias awetest="Xephyr -ac -br -noreset -screen 800x600 :1 & sleep 1 && DISPLAY=:0.0 awesome -c ~/.config/awesome/rc.lua"
 
 
@@ -122,7 +126,7 @@ function precmd {
     RPROMPT="%{${fg[white]}%}%~%{${reset_color}%}"
     SPROMPT="correct: %R -> %r ? "
 }
-
+# 
 #export LS_COLORS='di=36:ln=35:so=32:pi=33:ex=31:bd=46;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 ## terminal configuration
 #
@@ -168,3 +172,54 @@ main() {
 }
 
 [ -f ~/.zsh/.zshrc.mine ] && source ~/.zsh/.zshrc.mine
+
+# Git wrapper `gem install hub`
+if [ -x "`which hub 2> /dev/null`" ]; then
+    alias git=hub
+else
+    alias git=git
+fi
+
+
+# # git stash count
+# function git_prompt_stash_count {
+#   local COUNT=$(git stash list 2>/dev/null | wc -l | tr -d ' ')
+#   if [ "$COUNT" -gt 0 ]; then
+#     echo " ($COUNT)"
+#   fi
+# }
+# 
+# autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
+# 
+# function rprompt-git-current-branch {
+#     local name st color action
+# 
+#     if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
+#       return
+#     fi
+# 
+#     name=$(basename "`git symbolic-ref HEAD 2> /dev/null`")
+#     if [[ -z $name ]]; then
+#       return
+#     fi
+# 
+#     st=`git status 2> /dev/null`
+#     if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
+#       color=${fg[blue]}
+#     elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
+#       color=${fg[yellow]}
+#     elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
+#       color=${fg_bold[red]}
+#     else
+#       color=${fg[red]}
+#     fi
+# 
+#     gitdir=`git rev-parse --git-dir 2> /dev/null`
+#     action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
+# 
+#     # %{...%} surrounds escape string
+#     echo "%{$color%}$name$action`git_prompt_stash_count`$color%{$reset_color%}"
+# }
+# 
+# # how to use
+# PROMPT = "`rprompt-git-current-branch`"

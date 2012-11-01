@@ -23,7 +23,7 @@ cnoremap <Leader><Leader> ~/
 " b でブレース 対応する括弧(){}にジャンプ
 nnoremap <tab> %
 
-
+nnoremap f s
 " http://hatena.g.hatena.ne.jp/hatenatech/20060515/1147682761
 " ノーマル、ビジュアル、挿入時、コマンド入力時(:wq)にShift + l(Ctrl + l)で抜ける
 " L が入力できないので l を入力して~で大文字に変換
