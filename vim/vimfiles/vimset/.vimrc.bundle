@@ -101,7 +101,7 @@ NeoBundle 'git://github.com/tpope/vim-rails'
 NeoBundle 'git://github.com/tpope/vim-cucumber'
 " ------------------------------------------------------------
 " perl
-NeoBundle 'git://github.com/petdance/vim-perl'
+NeoBundle 'git://github.com/gylfe/vim-perl'
 NeoBundle 'git://github.com/hotchpotch/perldoc-vim'
 "js
   "NeoBundle 'JavaScript-syntax'

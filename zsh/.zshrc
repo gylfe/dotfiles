@@ -55,7 +55,7 @@ case "${OSTYPE}" in
 # linux ----------------------------
 linux*)
 alias myhome='sudo netcfg myhome'
-alias dropboxw='sh $HOME/dict/dropbox/automate_dropbox.sh'
+alias dropboxw='sh $HOME/dict/dropbox/auto_dropbox.sh'
 alias mbplack='cd /home/gylfe/git/markdown-binder && plackup'
 alias gentoo!='su - && mount /dev/sda? /mnt/gentoo && mount -t proc none /mnt/gentoo/proc &&  mount --rbind /dev /mnt/gentoo/dev && chroot /mnt/gentoo /bin/zsh'
 
@@ -63,6 +63,7 @@ alias ,doc='cd ~/dict/dropbox/code/Dropbox/docs && ls -a'
 alias ,code='cd ~/dict/dropbox/code/Dropbox'
 alias ,pri='cd ~/dict/dropbox/private/Dropbox'
 alias ,script='cd ~/dict/script && ls -a --color'
+alias bmouse='sudo hidd --connect 00:07:61:F4:E7:68'
 
 ;;
 # cygwin ----------------------------

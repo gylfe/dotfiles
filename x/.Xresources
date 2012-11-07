@@ -59,7 +59,7 @@ URxvt.foreground: white
 ! URxvt.boldFont: xft:anony for Powerline:pixelsize=15:antialias=true
 URxvt.font: xft:Ricty for Powerline:pixelsize=15:antialias=true
 URxvt.boldFont: xft:Ricty for Powerline:pixelsize=15:antialias=true
-URxvt.geometry: 70x30
+URxvt.geometry: 80x30
 URxvt.scrollBar:  	 false
 URxvt.secondaryScroll: true
 URxvt.keepscroll: true
@@ -81,16 +81,19 @@ URxvt.urllauncher: luakit
 !URxvt.keysym.C-C: perl:urxvt-xsel:copy
 !URxvt.keysym.C-V: perl:urxvt-xsel:paste
 !URxvt.keysym.C-M-V: perl:urxvt-xsel:paste_selected
+URxvt.inputMethod: ibus
+URxvt.preeditType: OverTheSpot
 
 !Config XTerm
 XTerm*utf8: 1
 XTerm*locale: true
 XTerm*faceName: 'Ricty'
-XTerm*faceSize: 10
+XTerm*faceSize: 30
 !XTerm*cjkWidth: true
 XTerm*background: black
 XTerm*foreground: white
 XTerm*saveLines: 2048
-XTerm*geometry: 80x20+300+100
+!XTerm*geometry: 50x20+300+100
+XTerm*geometry: 30x10
 
 
