@@ -4,14 +4,9 @@
 
 # 目をかけてやってもいい
 !/.gitignore
-!/.gitmodules
-!/README.md
-!/coding/
-!luakit/
-!vim/
-!x/
-!zsh/
+!/.pryrc
+!/Gemfile
+!.pry/
 
 # 頑として無視
-.DS_Store
 
