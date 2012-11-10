@@ -172,7 +172,8 @@ main() {
     load_plugins
 }
 
-[ -f ~/.zsh/.zshrc.mine ] && source ~/.zsh/.zshrc.mine
+[ -f ~/.zsh/.zshrc.alt ] && source ~/.zsh/.zshrc.alt
+
 
 # Git wrapper `gem install hub`
 if [ -x "`which hub 2> /dev/null`" ]; then

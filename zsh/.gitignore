@@ -8,4 +8,5 @@
 !/.zshenv
 !/.zshlogin
 !.zsh.d/
+# !.antigen/
 # 頑として無視

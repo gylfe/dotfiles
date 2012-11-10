@@ -4,11 +4,9 @@
 
 # 目をかけてやってもいい
 !/.gitignore
+!/.zshrc.alt
+!/git.zsh
 !bin/
 !func/
-!auto-fu.zsh.git/
-!zaw.git/
-!/git.zsh
-!/incr-0.2.zsh
-!/./zsh.mime
+!antigen/
 # 頑として無視
