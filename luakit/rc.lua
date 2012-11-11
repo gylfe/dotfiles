@@ -168,3 +168,13 @@ if unique then
 end
 
 -- vim: et:sw=4:ts=8:sts=4:tw=80
+
+
+--------------------
+-- luakit plugins --
+--------------------
+
+require "adblock"
+require "adblock-chrome"
+
+
