@@ -22,7 +22,7 @@ source ${HOME}/.zsh/antigen/antigen.zsh
     # antigen-bundle mimosa-pudica.net/src/incr-0.2.zsh
 
 # theme
-    # antigen-theme 
+    antigen-theme dogenpunk
 
 
 # Tell zntigen that you're done

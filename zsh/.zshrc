@@ -31,7 +31,6 @@ alias ll='ls -al --color'
 alias la='ls -a --color'
 alias vi='vim'
 alias c='clear'
-alias rm='trash-put -i'
 alias cp='cp --interactive'
 alias ping='ping -c 5'
 alias diff='colordiff'
@@ -54,9 +53,11 @@ alias awetest="Xephyr -ac -br -noreset -screen 800x600 :1 & sleep 1 && DISPLAY=:
 case "${OSTYPE}" in
 # linux ----------------------------
 linux*)
+alias rm='trash-put -i'
+
 alias myhome='sudo netcfg myhome'
 alias dropboxw='sh $HOME/dict/dropbox/auto_dropbox.sh'
-alias mbplack='cd /home/gylfe/git/markdown-binder && plackup'
+alias mbplack='cd /home/gylfe/git/tools/markdown-binder && plackup'
 alias gentoo!='su - && mount /dev/sda? /mnt/gentoo && mount -t proc none /mnt/gentoo/proc &&  mount --rbind /dev /mnt/gentoo/dev && chroot /mnt/gentoo /bin/zsh'
 
 alias ,doc='cd ~/dict/dropbox/code/Dropbox/docs && ls -a'

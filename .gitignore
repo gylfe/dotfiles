@@ -6,7 +6,8 @@
 !/.gitignore
 !/.gitmodules
 !/README.md
-!/coding/
+!/Rakefile
+!coding/
 !luakit/
 !vim/
 !x/
