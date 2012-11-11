@@ -1,28 +1,29 @@
-
-
 # {{{---------------------------------------------
 # Antigen
 source ${HOME}/.zsh/antigen/antigen.zsh
 
 # oh-my-zsh
-antigen-bundle git
-antigen-bundle pip
-antigen-bundle ruby
-antigen-bundle rbenv
-antigen-bundle rails3
-antigen-bundle yaourt
-antigen-bundle command-not-found
-antigen-bundle vi-mode
+    # antigen-bundles <<-OMZ
+    #     git
+    #     rails3
+    #     rbenv
+    #     ruby
+    #     vi-mode
+    # OMZ
 
 # zsh-users
-antigen-bundle zsh-users/zsh-syntax-highlighting
-antigen-bundle zsh-users/zaw
-# antigen-bundle zsh-users/zsh-completions
-#   aur/zsh-completions-git
+    # antigen-bundle zsh-users/zsh-syntax-highlighting
+    # antigen-bundle zsh-users/zaw
+    # antigen-bundle zsh-users/zsh-completions
+    # "aur/zsh-completions-git
 
 # others
-antigen-bundle hchbaw/auto-fu.zsh
-antigen-bundle mimosa-pudica.net/src/incr-0.2.zsh
+    # antigen-bundle hchbaw/auto-fu.zsh
+    # antigen-bundle mimosa-pudica.net/src/incr-0.2.zsh
+
+# theme
+    # antigen-theme 
+
 
 # Tell zntigen that you're done
 antigen-apply

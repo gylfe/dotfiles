@@ -5,7 +5,7 @@
 # 目をかけてやってもいい
 !/.gitignore
 !/binds.lua
-!/global.lua
+!/globals.lua
 !/modes.lua
 !/rc.lua
 !/theme.lua

@@ -5,7 +5,6 @@ darwin*)
 ;;
 # Linux ==========================
 linux*)
-export TERM=rxvt-256color
 export HOME="/home/${USERNAME}"
 export XAUTHORITY="${HOME}/.Xauthority"
 export BROWSER="/usr/bin/luakit"
@@ -38,7 +37,7 @@ if [ -f ${HOME}/.perlbrew/etc/bashrc ]; then
 fi
 
 # Git
-export PATH=${HOME}/git/git-tasukete:${PATH}
+export PATH=${HOME}/git/tools/git-tasukete:${PATH}
 
 # Autoload
 autoload zargs
