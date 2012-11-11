@@ -1,13 +1,14 @@
 # 継ぎ接ぎだらけのどっとふぁいるず #
 
-## description ##
-+ this is my dotfiles
- + luakit
- + pry
+## Description ##
++ Thisi my dotfiles
  + vim
- + x
  + zsh
+ + pry
+ + luakit
+ + x
 
 ## Usage ##
     rake
+
 
