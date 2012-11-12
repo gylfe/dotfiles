@@ -6,7 +6,7 @@ Pry.config.editor = "vim"
 Pry.config.theme = "monokai"
 
 Pry.config.prompt_name = File.basename(Dir.pwd)
-Pry.config.prompt = [proc {|obj,nest_level,pry| "#{pry.input_array.size}] pry:#{obj}> "},
+Pry.config.prompt = [proc {|obj,nest_level,pry| "[#{pry.input_array.size}] pry:#{obj}> "},
                      proc {"     | "}]
 
 # awesome_print
