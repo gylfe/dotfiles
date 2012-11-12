@@ -14,8 +14,6 @@ nnoremap <silent> <special> <S-k> i<CR><Esc>
 " enter to bkankLine in normal mode
 noremap <CR> o<ESC>
 " 
-inoremap <C-e><C-o> <ESC>o
-inoremap <C-e><C-O> <ESC>O
 " Hacks
 "noremap ; :
 "noremap : ;
@@ -24,6 +22,10 @@ cnoremap <Leader><Leader> ~/
 nnoremap <tab> %
 
 nnoremap f s
+
+inoremap <C-o> <ESC>o
+inoremap <C-u> <ESC>O
+
 " http://hatena.g.hatena.ne.jp/hatenatech/20060515/1147682761
 " ノーマル、ビジュアル、挿入時、コマンド入力時(:wq)にShift + l(Ctrl + l)で抜ける
 " L が入力できないので l を入力して~で大文字に変換
