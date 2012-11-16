@@ -1,31 +1,37 @@
+#!/bin/zsh
+
 # {{{---------------------------------------------
-# Antigen
-source ${HOME}/.zsh/antigen/antigen.zsh
-
-# oh-my-zsh
-    # antigen-bundles <<-OMZ
-    #     git
-    #     rails3
-    #     rbenv
-    #     ruby
-    #     vi-mode
-    # OMZ
-
-# zsh-users
-    # antigen-bundle zsh-users/zsh-syntax-highlighting
-    # antigen-bundle zsh-users/zaw
-    # antigen-bundle zsh-users/zsh-completions
-    # "aur/zsh-completions-git
-
-# others
-    # antigen-bundle hchbaw/auto-fu.zsh
-    # antigen-bundle mimosa-pudica.net/src/incr-0.2.zsh
-
-# theme
-    antigen-theme dogenpunk
-
-
-# Tell zntigen that you're done
-antigen-apply
-
+# # Antigen
+# source ${HOME}/.zsh/antigen/antigen.zsh
+# 
+# # oh-my-zsh
+#      # antigen-bundles <<-OMZ
+#     #     git
+#     #     rails3
+#         # rbenv
+#     #     ruby
+#     #     vi-mode
+#      # OMZ
+# 
+# # zsh-users
+#     # antigen-bundle zsh-users/zsh-syntax-highlighting
+#     # antigen-bundle zsh-users/zaw
+#     # antigen-bundle zsh-users/zsh-completions
+#     # "aur/zsh-completions-git
+# 
+# # others
+#     # antigen-bundle hchbaw/auto-fu.zsh
+#     # antigen-bundle mimosa-pudica.net/src/incr-0.2.zsh
+#     # antigen-bundle https://raw.github.com/git/git/master/contrib/completion/git-completion.bash
+# 
+# # theme
+#     # antigen-theme dogenpunk
+# 
+# 
+# # Tell zntigen that you're done
+# antigen-apply
+# 
 # }}}
+
+# Local scripts
+[ -f ${HOME}/.zsh/scr/bundler-exec.zsh ] && source ${HOME}/.zsh/scr/bundler-exec.zsh

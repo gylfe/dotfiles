@@ -1,19 +1,23 @@
 source :rubygems
 
 group :development do
-    gem 'ruby-debug19', :require => 'debug'
+  gem 'ruby-debug19', :require => 'debug'
 
-    gem 'pry'
-    gem 'pry-coolline' #realtime colorize
-    gem 'pry-theme' #colorscheme
-    gem 'pry-doc'
-    gem 'debugger-pry', :require => 'debugger/pry' #add pry command to rdb session
-    gem 'pry-debugger' #add debugger commands
-    gem 'pry-rails'
+  gem 'pry'
+  gem 'pry-coolline' #realtime colorize
+  gem 'pry-theme' #colorscheme
+  gem 'pry-doc'
+  gem 'debugger-pry', :require => 'debugger/pry' #add pry command to rdb session
+  gem 'pry-debugger' #add debugger commands
+  gem 'pry-rails'
 
+  gem 'awesome_print'
 
-    gem 'awesome_print'
+  # for rails
+  gem 'hirb-unicode' #`rails c`=>`Hirb.enable`
 
-    # for rails
-    gem 'hirb-unicode' #`rails c`=>`Hirb.enable`
+  gem 'gem-browse'
+  
+  # for test
+  gem 'guard-shell'
 end

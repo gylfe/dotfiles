@@ -13,6 +13,6 @@ if has('win32')
     set transparency=210
 elseif has('darwin')
 else
-    set guifont='Ricty for Powerline':h12:
-    set guifontwide=Ricty for Powerline:h12
-end"
+    set guifont=Ricty for Powerline:h14:cSHIFTJIS
+    set guifontwide=Ricty for Powerline:h14:cSHIFTJIS
+end

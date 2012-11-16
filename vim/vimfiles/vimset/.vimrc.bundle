@@ -1,15 +1,18 @@
-" ----------------------------------------------------------------------------
+" ------------------------------------------------------------------
 " Neobundle
-" ---------------------------------------------------------------------------
+" ------------------------------------------------------------------
 " general 
 "
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/neobundle.vim.git/ 
-call neobundle#rc()
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-" ----------------------------------------------------------------------
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" ------------------------------------------------------------------
 " plugins
 "
 NeoBundle 'tpope/vim-fugitive'
@@ -42,7 +45,12 @@ NeoBundle 'git://github.com/fuenor/qfixgrep'
 NeoBundle 'git://github.com/kana/vim-submode'
  
 NeoBundle 'git://github.com/jimsei/winresizer'
-" ------------------------------------------------------------
+
+" ------------------------------------------------------------------
+" File
+NeoBundle 'git://github.com/vim-scripts/mru.vim'
+
+" ------------------------------------------------------------------
 " Coding
 "
 NeoBundle 'git://github.com/mattn/zencoding-vim'
@@ -52,7 +60,7 @@ NeoBundle 'git://github.com/sjl/gundo.vim' "undo tree
 NeoBundle 'git://github.com/kana/vim-smartinput'
 NeoBundle 'git://github.com/kana/vim-tabpagecd'
 
-" ------------------------------------------------------------
+" ------------------------------------------------------------------
 "  Input
 "
 NeoBundle 'git://github.com/bouzuya/vim-ibus'
@@ -60,7 +68,7 @@ NeoBundle 'git://github.com/bouzuya/vim-ibus'
     "NeoBundle 'git://github.com/anyakichi/skk.vim'
 
 
-" ------------------------------------------------------------
+" ------------------------------------------------------------------
 "Complete
 "
 NeoBundle 'git://github.com/Shougo/neocomplcache'
@@ -68,7 +76,7 @@ NeoBundle 'git://github.com/Shougo/neocomplcache'
 NeoBundle 'git://github.com/ujihisa/neco-look'
 NeoBundle 'git://github.com/tpope/vim-endwise'
 
-" -----------------------------------------------------------
+" ------------------------------------------------------------------
 " Debug
 "
 NeoBundle 'git://github.com/thinca/vim-quickrun'
@@ -76,7 +84,7 @@ NeoBundle 'git://github.com/osyo-manga/unite-quickfix'
 NeoBundle 'git://github.com/osyo-manga/shabadou.vim'
 NeoBundle 'git://github.com/osyo-manga/vim-watchdogs'
 
-" -----------------------------------------------------------
+" ------------------------------------------------------------------
 " Clipboard
 "
 NeoBundle 'git://github.com/vim-scripts/YankRing.vim'
@@ -85,7 +93,7 @@ NeoBundle 'git://github.com/vim-scripts/yanktmp.vim'
 NeoBundle 'git://github.com/sgur/ctrlp-extensions.vim'
 NeoBundle 'git://github.com/kana/vim-fakeclip'
 
-" ------------------------------------------------------------
+" ------------------------------------------------------------------
 " ColorScheme
 "
 NeoBundle 'tomasr/molokai'
@@ -93,41 +101,49 @@ NeoBundle 'tomasr/molokai'
   "NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'vim-scripts/Ubloh-Color-Scheme'
 NeoBundle 'git://github.com/Lokaltog/vim-powerline'
-" ----------------------------------------------------------
+" ------------------------------------------------------------------
 " ruby
 NeoBundle 'git://github.com/vim-ruby/vim-ruby'
 NeoBundle 'git://github.com/taka84u9/vim-ref-ri'
 NeoBundle 'git://github.com/tpope/vim-rails'
 NeoBundle 'git://github.com/tpope/vim-cucumber'
-" ------------------------------------------------------------
+" ------------------------------------------------------------------
 " perl
 NeoBundle 'git://github.com/gylfe/vim-perl'
 NeoBundle 'git://github.com/hotchpotch/perldoc-vim'
-"js
+" ------------------------------------------------------------------
+" js
   "NeoBundle 'JavaScript-syntax'
   "NeoBundle 'itspriddle/vim-javascript-indent'
+" ------------------------------------------------------------------
 "Scala
 NeoBundle 'derekwyatt/vim-scala'
+" ------------------------------------------------------------------
 "HTML
-NeoBundle 'taichouchou2/html5.vim'
+  "NeoBundle 'taichouchou2/html5.vim'
+NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'cakebaker/scss-syntax.vim' 
   "NeoBundle 'vim-scripts/css_color.vim' " show colorcode
+" ------------------------------------------------------------------
 "Markdown
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'mivok/vimtodo'
 NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'glidenote/octoeditor.vim'
   "NeoBundle 'hallison/vim-markdown'
+" ------------------------------------------------------------------
 "Comment
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-surround'
-
+NeoBundle 'kana/vim-niceblock'
+" ------------------------------------------------------------------
 "英辞郎、CPAN、jQAPI、コトバンク、Wikipediaを参照(Refソース)。 
 NeoBundle 'mojako/ref-sources.vim.git'
 "Answer.com,ReversoHyper Dictionary,Longman,Oxford Dictionaries,Synonym.comを参照 
 NeoBundle 'mfumi/ref-dicts-en.git'
 
+" ------------------------------------------------------------------
 "Text Object
   "NeoBundle 'kana/vim-textobj-user' 
   "NeoBundle 'kana/vim-textobj-entire' "バッファー全体(text object)
@@ -137,16 +153,18 @@ NeoBundle 'mfumi/ref-dicts-en.git'
   "NeoBundle 'kana/vim-textobj-indent' "インデント(text object)
   "NeoBundle 'kana/vim-textobj-fold' "折り畳み(text object)
 
-"Service ===========
+" ------------------------------------------------------------------
+"Service
+NeoBundle 'mattn/gist-vim'
+NeoBundle 'mattn/ctrlp-gist'
 NeoBundle 'mattn/webapi-vim'
-  "NeoBundle 'kakkyz81/evervim'
 NeoBundle 'mrtazz/simplenote.vim'
 NeoBundle 'mattn/vimplenote-vim'
-",{'depends':'mattn/webapi-vim'}
-"Simplenote with Unite
+  "NeoBundle 'kakkyz81/evervim'
+" Simplenote with Unite
   "NeoBundle 'kana/vim-metarw.vim'
   "NeoBundle 'sorah/metarw-simplenote.vim'
-"Twitter ===========
+" Twitter
   "NeoBundle 'basyura/TweetVim',{'depends':'basyura/twibill.vim'}
 NeoBundle 'h1mesuke/unite-outline'
   "NeoBundle 'basyura/bitly.vim'
@@ -154,20 +172,21 @@ NeoBundle 'h1mesuke/unite-outline'
   "NeoBundle 'yomi322/unite-tweetvim'
   "NeoBundle 'osyo-manga/TweetVim-powerline-theme'
 "MPD
-  "NeoBundle 'mfumi/unite-mpc'
-  "NeoBundle 'mfumi/mpc.vim',{'depends':'mattn/webapi-vim'}
+NeoBundle 'git://github.com/mfumi/unite-mpc'
+NeoBundle 'git://github.com/mfumi/mpc.vim'
 "EasterEgg
 NeoBundle 'git://github.com/mattn/benchvimrc-vim'
 NeoBundle 'git://github.com/thinca/vim-scouter'
   "NeoBundle 'koron/u-nya-vim'
 
+" ------------------------------------------------------------------
+"
 let $PATH = $PATH . '/opt/local/bin'
 
-filetype indent on
-filetype plugin on
+filetype plugin indent on
 
 if neobundle#exists_not_installed_bundles()
   echomsg 'Not installed bundles: ' .
-  \ string(neobundle#get_not_installed_bundle_names())
+    \ string(neobundle#get_not_installed_bundle_names())
   echomsg 'Please execute "NeoBundleInstall" command. '
 endif

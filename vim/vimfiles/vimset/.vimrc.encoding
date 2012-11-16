@@ -6,9 +6,9 @@ set fileencoding=utf-8
 set fileencodings=utf-8,cp932,euc-jp,iso-20220-jp,default,latin,sjis
 set fileformats=unix,dos
 set backup
-set noswapfile
-set backupdir=$HOME/.backup
-let &directory = &backupdir
+set swapfile
+set backupdir=${HOME}/.backup
+let &directory=&backupdir
 set history=50
 
 " 文字コードの自動認識

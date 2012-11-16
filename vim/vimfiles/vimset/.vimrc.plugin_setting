@@ -1,4 +1,4 @@
-
+" --------------------------------------------------------------
 " Plugins Settings
 "
 " --------------------------------------------------------------
@@ -21,8 +21,41 @@ let g:quickrun_config = {
         \   "runner/vimproc/updatetime" : 40,
         \   }
 \}
-
 call watchdogs#setup (g:quickrun_config)
+
+" --------------------------------------------------------------
+"vimfiler
+"
+"set data_directory=ramdisk_directry
+if has('win32')
+    let g:vimfiler_data_directory = 'D:\.vimfiler'
+elseif  has('macunix')
+    let g:vimfiler_data_directory = '/Volumes/RamDisk/.vimfiler'
+else
+    let g:vimfiler_data_directory = '/dev/shm/.vimfiler'
+    "let g:vimfiler_data_directory = $HOME . '/.unite'
+endif
+
+"open current buffer directry
+nnoremap <silent> <Leader>fe :<C-u>VimFilerBufferDir -quit<CR>
+"open current buffer in IDE like
+nnoremap <silent> <Leader>fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
+
+"change default keymap
+augroup vimrc
+    autocmd FileType vimfiler call s:vimfiler_my_settings()
+augroup END
+function! s:vimfiler_my_settings()
+    nmap <buffer> f <Plug>(vimfiler_new_file)
+endfunction
+
+
+let g:vimfiler_as_default_explorer  = 1  "change default filer
+let g:vimfiler_safe_mode_by_default = 0  "safe mode無効化
+let g:vimdiler_default_split_rule   = "topright"
+" let g:vimfiler_edit_action = 'tabopen'
+
+autocmd FileType vimfiler nnoremap <buffer><silent>/ :<C-u>Unite file -default-action=vimfiler<CR>
 
 " ------------------------------------------------------------------
 " unite
@@ -31,8 +64,7 @@ call watchdogs#setup (g:quickrun_config)
 nnoremap [unite] <Nop>
 nmap <Space>f [unite]
 
-"インサートモードで開始しない
-let g:unite_enable_start_insert = 0
+let g:unite_enable_start_insert = 0  "not start insertmode
 
 " For ack.
 if executable('ack-grep')
@@ -92,40 +124,6 @@ endfunction
 "bookmarkだけホームディレクトリに保存
 let g:unite_source_bookmark_directory = $HOME . '/.unite/bookmark'
 call unite#custom_default_action('source/bookmark/directory', 'vimfiler')
-
-" --------------------------------------------------------------------------
-"vimfiler
-"
-"data_directory はramdiskを指定
-if has('win32')
-    let g:vimfiler_data_directory = 'C:\.vimfiler'
-elseif  has('macunix')
-    let g:vimfiler_data_directory = '/Volumes/RamDisk/.vimfiler'
-else
-    let g:vimfiler_data_directory = '/dev/shm/.vimfiler'
-    "let g:vimfiler_data_directory = $HOME . '/.unite'
-endif
-
-"現在開いているバッファのディレクトリを開く
-nnoremap <silent> <Leader>fe :<C-u>VimFilerBufferDir -quit<CR>
-"現在開いているバッファをIDE風に開く
-nnoremap <silent> <Leader>fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
-
-"デフォルトのキーマッピングを変更
-augroup vimrc
-    autocmd FileType vimfiler call s:vimfiler_my_settings()
-augroup END
-function! s:vimfiler_my_settings()
-    nmap <buffer> q <Plug>(vimfiler_exit)
-    nmap <buffer> Q <Plug>(vimfiler_hide)
-endfunction
-
-
-let g:vimfiler_as_default_explorer = 1 "change default filer
-let g:vimfiler_safe_mode_by_default = 0 "safe mode無効化
-let g:vimfiler_edit_action = 'tabopen'
-
-autocmd FileType vimfiler nnoremap <buffer><silent>/ :<C-u>Unite file -default-action=vimfiler<CR>
 
 " ----------------------------------------------------------------------
 " CtrlP

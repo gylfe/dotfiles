@@ -1,6 +1,3 @@
-[submodule "vim/vimfiles/neobundle.vim.git"]
-	path = vim/vimfiles/neobundle.vim.git
-	url = git://github.com/Shougo/neobundle.vim.git
 [submodule "luakit/plugins"]
 	path = luakit/plugins
 	url = git://github.com/mason-larobina/luakit-plugins.git

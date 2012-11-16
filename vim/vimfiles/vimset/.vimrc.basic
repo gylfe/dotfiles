@@ -1,6 +1,6 @@
-" ---------------------------------------------------------------------------
+" -------------------------------------------------------------------------
 " Basic
-" --------------------------------------------------------------------------
+" -------------------------------------------------------------------------
 " AutoLoad
 "
 nnoremap <silent> <Space>ev  :<C-u>edit ~/.vim/vimset/<CR>
@@ -16,31 +16,30 @@ augroup MyAutoCmd
     autocmd!
 augroup END
 
-" -----------------------------------------------------------------------------
+" -------------------------------------------------------------------------
 " Display & Information
 "
-set number             " 行番号表示
-set ruler               " カーソルの行,列数を非表示 ( statusline を設定するので )
-set title               " 処理ファイル名をタイトルバーに表示
+set number        " 行番号表示
+set ruler         " カーソルの行,列数を非表示 ( statusline を設定するので )
+set title         " 処理ファイル名をタイトルバーに表示
 set laststatus=2  " 常にステータスラインを表示する
-set showmode          " モード表示
-set showcmd            " コマンドをステータス行に表示
-set cmdheight=1    " コマンドラインは 1 行で
+set showmode      " モード表示
+set showcmd       " コマンドをステータス行に表示
+set cmdheight=1   " コマンドラインは 1 行で
 set list
 " set listchars=tab:
-set showmatch        " 対になるカッコを強調表示
-set matchtime=3    " showmatch time
-set scrolloff=3    " カーソルの周りは常に 3 行表示
-set wrap                 " 行の端まで到達すると折り返す
+set showmatch     " 対になるカッコを強調表示
+set matchtime=3   " showmatch time
+set scrolloff=3   " カーソルの周りは常に 3 行表示
+set wrap          " 行の端まで到達すると折り返す
 set formatoptions+=mM
 set whichwrap=b,s,h,l,<,>,[,]    " カーソルを行頭、行末で止まらないようにする
 set completeopt=menuone
 
-"set cursorline    " :se cul  :se nocul  :h cursorli
-set hidden " バッファが編集中でもその他のファイルを開けるように
-
-set splitbelow     "新しいウィンドウを下に開く
-set splitright     "新しいウィンドウを右に開く
+"set cursorline   " :se cul  :se nocul  :h cursorli
+set hidden        " バッファが編集中でもその他のファイルを開けるように
+set splitbelow    "新しいウィンドウを下に開く
+set splitright    "新しいウィンドウを右に開く
 
 set backspace=indent,eol,start
 " Clipboard

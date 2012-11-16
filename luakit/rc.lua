@@ -174,7 +174,5 @@ end
 -- luakit plugins --
 --------------------
 
-require "adblock"
-require "adblock-chrome"
 
 

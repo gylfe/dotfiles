@@ -5,8 +5,9 @@
 # 目をかけてやってもいい
 !/.gitignore
 !/.zshrc.alt
-!/git.zsh
+!antigen/
 !bin/
 !func/
-!antigen/
+!src/
+
 # 頑として無視
