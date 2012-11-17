@@ -63,7 +63,6 @@ URxvt.transparent: true
 URxvt.tintColor: white
 URxvt.shading: 50
 URxvt.saveLines:2048
-URxvt.preeditType: Root
 URxvt.urllauncher: luakit
 !URxvt.perl-lib: ~/dict/script/perl/lib/
 !urxvt.perl-ext-common: default,matcher,tabbed,clipboard tabbed
@@ -73,7 +72,14 @@ URxvt.urllauncher: luakit
 !URxvt.keysym.C-V: perl:urxvt-xsel:paste
 !URxvt.keysym.C-M-V: perl:urxvt-xsel:paste_selected
 URxvt.inputMethod: ibus
+!Root or OverTheSpot
 URxvt.preeditType: OverTheSpot
+
+
+URxvt.colorIT: #87af5f
+URxvt.colorBT: #d7d7d7
+URxvt.colorUL: #87af5f
+
 
 !Config XTerm
 XTerm*utf8: 1

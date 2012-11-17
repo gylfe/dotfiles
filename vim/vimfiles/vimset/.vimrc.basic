@@ -29,7 +29,7 @@ set cmdheight=1   " コマンドラインは 1 行で
 set list
 " set listchars=tab:
 set showmatch     " 対になるカッコを強調表示
-set matchtime=3   " showmatch time
+set matchtime=2   " showmatch time
 set scrolloff=3   " カーソルの周りは常に 3 行表示
 set wrap          " 行の端まで到達すると折り返す
 set formatoptions+=mM

@@ -15,7 +15,7 @@ task :vim do
             File.symlink(target,link)
         end
     end
-    system('git clone git://github.com/Shougo/neobundle.vim vim/vimset/bundle/neobundle.vim')
+    system('git clone git://github.com/Shougo/neobundle.vim vim/vimfiles/bundle/neobundle.vim')
 end
 
 desc "make link for zsh configuration"

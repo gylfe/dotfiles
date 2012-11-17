@@ -32,7 +32,11 @@ linux*)
     export PATH=${HOME}/dict/script/perl/bin:${HOME}/.cpanm/bin:${PATH}
     export PERL5LIB=${HOME}/.cpanm/lib/perl5:${HOME}/.cpanm/lib/perl5/i686-linux-thread-multi:${PERL5LIB}
     export PERLBREW_ROOT=${HOME}/.perlbrew
+    export PERLBREW_HOME=${HOME}/.perlbrew
     export PERL_CPANM_OPT="--local-lib=${HOME}/.cpanm"
+    # export PERL_LOCAL_LIB_ROOT=${HOME}/.cpanm
+    # export PERL_MB_OPT="--install_base ${HOME}/.cpanm"
+    # export PERL_MM_OPT="INSTALL_BASE ${HOME}/.cpanm"
     [[ -f ${HOME}/.perlbrew/etc/bashrc ]] && source ${HOME}/.perlbrew/etc/bashrc
 
     # node.js
@@ -46,8 +50,7 @@ linux*)
     autoload zargs
 
     # path
-    manpath=(/usr/local/share/man(N-/)
-    /usr/share/man(N-/))
+     export MANPATH=/usr/local/share/man:/usr/share/man:
 
     typeset -U path cdpath fpath manpath
 ;;
@@ -58,3 +61,4 @@ cygwin*)
 darwin*)
 ;;
 esac
+

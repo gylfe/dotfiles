@@ -7,6 +7,10 @@ HISTFILE=~/.log/.zshistry
 SAVEHIST=16384
 setopt   extended_glob         # glob機能拡張
 unsetopt caseglob              # ファイルグロブで大小非区別
+setopt   long_list_jobs
+setopt   auto_resume
+setopt   numeric_glob_sort
+unsetopt promptcr
 
 # REPORTTIME=5  # 5秒以上かかった処理の詳細表示
 
@@ -111,6 +115,7 @@ setopt auto_cd
 setopt auto_list
 setopt auto_menu                # TABで補完候補切り替え
 setopt auto_param_keys          # ()等の自動補完
+setopt auto_param_slash
 setopt auto_pushd
 setopt complete_in_word
 setopt correct
@@ -121,10 +126,10 @@ setopt list_types
 setopt magic_equal_subst        # --prefix=/usr等の=以降も補完
 setopt mark_dirs                # add / last of directoey
 setopt no_beep
-setopt nolistbeep
-setopt notify                   # notify end states of background job
 setopt noautoremoveslash
+setopt nolistbeep
 setopt nonomatch                # よう分からんが no matches foundと怒られるんで
+setopt notify                   # notify end states of background job
 setopt numeric_glob_sort
 setopt print_eight_bit          # 日本語ファイル名等, 8bitを通す
 setopt pushd_ignore_dups        # 同じディレクトリをpushdしない
@@ -240,3 +245,4 @@ fi
 # 
 # # how to use
 # PROMPT = "`rprompt-git-current-branch`"
+
