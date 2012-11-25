@@ -19,6 +19,7 @@ linux*)
     # Ruby
     # export GEM_HOME=${HOME}/.gem/ruby/1.9.3
     # export GEM_PATH=${HOME}/.gem/ruby/1.9.3/bin
+    export RUBYOPT=rubygems
     export PATH=${HOME}/.gem/ruby/1.9.1/bin:${PATH}
     export RSENSE_HOME=$HOME/.rsense
     if [ -d ${HOME}/.rbenv ]; then
@@ -50,7 +51,7 @@ linux*)
     autoload zargs
 
     # path
-     export MANPATH=/usr/local/share/man:/usr/share/man:
+    export MANPATH=/usr/local/share/man:/usr/share/man:
 
     typeset -U path cdpath fpath manpath
 ;;
@@ -62,3 +63,4 @@ darwin*)
 ;;
 esac
 
+# [[ -f ~/.infinality ]] && source ~/.infinality

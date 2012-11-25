@@ -3,12 +3,8 @@
 "
 " plugin keymap
 nmap U :<C-u>GundoToggle<CR>
-inoremap <silent> <C-a> <C-r>=IMState ('FixMode')<CR>
 
 " Sytem Keymap
-" tabnew は補完が聞きづらいので定義しとく
-map t :tabnew<Space>
-
 " カーソルの位置で改行
 nnoremap <silent> <special> <S-k> i<CR><Esc>
 " enter to bkankLine in normal mode
@@ -18,10 +14,11 @@ noremap <CR> o<ESC>
 "noremap ; :
 "noremap : ;
 cnoremap <Leader><Leader> ~/
+
 " b でブレース 対応する括弧(){}にジャンプ
 nnoremap <tab> %
 
-nnoremap f s
+" nnoremap f s
 
 inoremap <C-o> <ESC>o
 inoremap <C-u> <ESC>O

@@ -20,6 +20,7 @@
 #     # "aur/zsh-completions-git
 # 
 # # others
+      # antigen-bundle joelthelion/autojump
 #     # antigen-bundle hchbaw/auto-fu.zsh
 #     # antigen-bundle mimosa-pudica.net/src/incr-0.2.zsh
 #     # antigen-bundle https://raw.github.com/git/git/master/contrib/completion/git-completion.bash
@@ -34,4 +35,16 @@
 # }}}
 
 # Local scripts
-[ -f ${HOME}/.zsh/scr/bundler-exec.zsh ] && source ${HOME}/.zsh/scr/bundler-exec.zsh
+[ -f ${HOME}/.zsh/src/bundler-exec.zsh ] && source ${HOME}/.zsh/src/bundler-exec.zsh
+
+[ -f ${HOME}/.zsh/src/autojump/bin/autojump.zsh ] && source ${HOME}/.zsh/src/autojump/bin/autojump.zsh
+
+
+if [ -f ${HOME}/.zsh/src/z/z.sh ]; then
+    source ${HOME}/.zsh/src/z/z.sh
+    function _z_precmd() {
+        _z --add "$(pwd -P)"
+    }
+fi
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd _z_precmd

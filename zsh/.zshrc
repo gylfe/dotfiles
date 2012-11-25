@@ -1,24 +1,26 @@
 #!/bin/zsh
-# This is load after .zshenv
-
+## This is load after .zshenv
+## Load when interactive
 # base setting --------------------
 HISTSIZE=4096
 HISTFILE=~/.log/.zshistry
 SAVEHIST=16384
-setopt   extended_glob         # glob機能拡張
-unsetopt caseglob              # ファイルグロブで大小非区別
-setopt   long_list_jobs
 setopt   auto_resume
+setopt   extended_glob         # glob機能拡張
+setopt   long_list_jobs
 setopt   numeric_glob_sort
+setopt ignore_eof
+unsetopt caseglob              # ファイルグロブで大小非区別
 unsetopt promptcr
-
-# REPORTTIME=5  # 5秒以上かかった処理の詳細表示
+autoload -Uz add-zsh-hook
+REPORTTIME=100  # 100秒以上かかった処理の詳細表示
+watch="all"
+# log
 
 # Lang ----------------------------
 export LANG=ja_JP.UTF-8
 export LC_CTYPE="ja_JP.UTF-8"
 export LC_TIME="en_US.UTF-8"
-
 
 # Alias -- modified commands -------
 setopt complete_aliases     # aliased ls needs if file/dir completions work
@@ -105,7 +107,6 @@ cygwin*)
     ;;
 esac
 
-
 # Key Binding ------------------------
 bindkey -v
 
@@ -117,6 +118,8 @@ setopt auto_menu                # TABで補完候補切り替え
 setopt auto_param_keys          # ()等の自動補完
 setopt auto_param_slash
 setopt auto_pushd
+setopt pushd_ignore_dups        # 同じディレクトリをpushdしない
+setopt pushd_minus
 setopt complete_in_word
 setopt correct
 setopt glob_complete
@@ -132,11 +135,16 @@ setopt nonomatch                # よう分からんが no matches foundと怒�
 setopt notify                   # notify end states of background job
 setopt numeric_glob_sort
 setopt print_eight_bit          # 日本語ファイル名等, 8bitを通す
-setopt pushd_ignore_dups        # 同じディレクトリをpushdしない
 
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}  # 補完候補に色付け
-zstyle ':completion:*' verbose yes                   # 補完の表示を過剰にする 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'  # 補完時に文字の大小を区別しない
+## 補完方法の設定:指定した順に実行
+### _oldlist:前回の補完候補を利用 _complete:補完する _match:glob展開なし
+### _ignored:除外対象も補完候補に _approximate:似ているものも補完候補に
+### _prefix:カーソル以降を無視してカーソル位置まで補完
+zstyle ':completion:*' completer _oldlist _complete _match _ignored _approximate _prefix
+zstyle ':completion:*' use-cache yes  # 補完候補をキャッシュする
+zstyle ':completion:*' verbose yes  # 補完の詳細な表示
 
 
 # History Search ------------------
@@ -162,7 +170,7 @@ autoload -Uz promptinit: promptinit
 setopt   prompt_subst
 autoload -U colors; colors
 
-function precmd {
+function _judgement_precmd {
     
     # prompt color (red if root) :
     case ${UID} in
@@ -179,7 +187,10 @@ function precmd {
     PROMPT="%{${fg[magenta]}%}${HOST%%.*} ${PROMPT}"
 ;
 
+    echo -n "\e]2;$(data)\a"
 }
+
+add-zsh-hook precmd _judgement_precmd
 
 # terminal configuration
 
@@ -192,8 +203,33 @@ export CLICOLOR=true
 #predict-on
 autoload zed   # light editor
 
+function chpwd(){
+    ls
+}
 
-[ -f ~/.zsh/.zshrc.alt ] && source ~/.zsh/.zshrc.alt
+# google 検索期間を指定(y,w,h,m)
+function google-time() {
+    w3m "http://www.google.co.jp/search?num=50&hl=ja&lr=lang_ja&q=$2&tbs=qdr:${1}"
+}
+
+# command stack for <C-q>
+show_buffer_stack() {
+  POSTDISPLAY="
+stack: $LBUFFER"
+  zle push-line-or-edit
+}
+zle -N show_buffer_stack
+setopt no_flow_control
+bindkey '^Q' show_buffer_stack
+
+# for directory stack
+function dir() {
+    if [ -z "$1" ]; then
+        dirs -pv
+    else
+        dirs -pv | fgrep "$1"
+    fi
+}
 
 
 # Git wrapper `gem install hub`
@@ -202,6 +238,8 @@ if [ -x "`which hub 2> /dev/null`" ]; then
 else
     alias git=git
 fi
+
+[ -f ~/.zsh/.zshrc.alt ] && source ~/.zsh/.zshrc.alt
 
 # # git stash count
 # function git_prompt_stash_count {

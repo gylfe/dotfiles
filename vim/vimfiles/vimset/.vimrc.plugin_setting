@@ -52,8 +52,8 @@ endfunction
 
 let g:vimfiler_as_default_explorer  = 1  "change default filer
 let g:vimfiler_safe_mode_by_default = 0  "safe mode無効化
-let g:vimdiler_default_split_rule   = "topright"
-" let g:vimfiler_edit_action = 'tabopen'
+let g:vimfiler_split_rule  = 'topright'
+let g:vimfiler_edit_action = 'tabopen'  "open/tabopen
 
 autocmd FileType vimfiler nnoremap <buffer><silent>/ :<C-u>Unite file -default-action=vimfiler<CR>
 
@@ -128,20 +128,20 @@ call unite#custom_default_action('source/bookmark/directory', 'vimfiler')
 " ----------------------------------------------------------------------
 " CtrlP
 "
-let g:ctrlp_by_filename = 1
 let g:ctrlp_by_buffer = 1
-let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_by_filename = 1
 let g:ctrlp_cache_dir = '/dev/shm/.cache/ctrlp'
-let g:ctrlp_show_hidden = 1 "to show dotfiles"
-let g:ctrlp_max_depth = 15 "検索深度
-let g:ctrlp_mruf_max = 500 "
-let g:ctrlp_highlight_match = [1, 'IncSearch']
-let g:ctrlp_open_new_file = 1 "新規ファイルをtabで開く
-let g:ctrlp_open_multi = '5t' "複数ファイルを開くときでtabで最大8tab
-let g:ctrlp_open_new_file = 'r' " r=newtab, h=horizontal, v=vertical, r=currentW
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_custom_ignore = '\.git$\|\.svn$\|\/neocon$'
 let g:ctrlp_extensions =['dir', 'bookmarkdir', 'cmdline', 'yankring', 'menu']
+let g:ctrlp_highlight_match = [1, 'IncSearch']
+let g:ctrlp_max_depth = 15 "検索深度
+let g:ctrlp_mruf_max = 500 "
+let g:ctrlp_open_multi = '5t' "複数ファイルを開くときでtabで最大8tab
+let g:ctrlp_open_new_file = 'r' " r=newtab, h=horizontal, v=vertical, r=currentW
+let g:ctrlp_open_new_file = 1 "新規ファイルをtabで開く
+let g:ctrlp_show_hidden = 1 "to show dotfiles"
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 
 " -----------------------------------------------------------------------
@@ -165,7 +165,7 @@ map ;mg :MemoGrep<CR>
 " Simplenote
 " Evernote
 "
-source ~/.vimrc.pass
+  source ~/.vimrc.pass
 " -------------------------------------------------------------------
 " IM Control
 "
@@ -190,12 +190,12 @@ nnoremap ,rr :<C-U>Ref refe<Space>
 " ---------------------------------------------------------------------
 " vim-indent-guides
 " 
-let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0 "自動カラー無効化
-hi IndentGuidesOdd ctermbg=256
-hi IndentGuidesEven ctermbg=256
-let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 10
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
+hi IndentGuidesEven ctermbg=256
+hi IndentGuidesOdd ctermbg=256
 
 
 " ---------------------------------------------------------------------
@@ -219,15 +219,16 @@ endfunction
 " yank
 " 
 
-"" YankRing
-let g:yankring_history_dir = '$HOME/.tmp'
-    "let g:yankring_history_file = 'yankring.log'
-let g:yankring_max_history = 7
-let g:yankring_ignore_duplicate = 1
-nmap ,y :YRShow<CR>
-""nmap ,y :CtrlPYankring<CR>
-let g:yankring_paste_n_akey = "NONE"
-let g:yankring_paste_n_bkey = "NONE"
+" "" YankRing
+" let g:yankring_history_dir = '$HOME/.tmp'
+"     "let g:yankring_history_file = 'yankring.log'
+" let g:yankring_max_history = 7
+" let g:yankring_ignore_duplicate = 1
+" nmap ,y :YRShow<CR>
+nmap ,y :CtrlPYankring<CR>
+" let g:yankring_paste_n_akey = "NONE"
+" let g:yankring_paste_n_bkey = "NONE"
+
 "" Yanktmp
 " map <silent> sy :call YanktmpYank()<CR>
 " map <silent> sp :call YanktmpPaste_p()<CR>

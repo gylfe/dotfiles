@@ -1,11 +1,8 @@
 " Tab & Space
-set autoindent     "auto indent on
-set nocindent
+set expandtab      "タブを空白文字に置換する
 set tabstop=2      "タブ幅
 set shiftwidth=2   "cindent や << / >> のインデント幅
 set softtabstop=0  "tabを押したときに挿入される幅. 0はtabstopの設定
-set expandtab      "タブを空白文字に置換する
-set smartindent
 
 
 if has("autocmd")
@@ -22,7 +19,7 @@ if has("autocmd")
     autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 et
     autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
     autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
-    autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
+    autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et si
     autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
     autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
     autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
@@ -41,3 +38,7 @@ if has("autocmd")
     " au BufNewFile,BufRead *.html setlocal tabstop=2 shiftwidth=2 smarttab
 endif
 
+
+set autoindent     "auto indent on
+set nocindent
+set smartindent

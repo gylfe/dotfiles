@@ -15,11 +15,13 @@ Xcursor.size: 16
 ! Normal : Light
 
 !!black
-*color0:   #666666
-*color8:   #999999
+*color0:   #101010
+*color8:   #606060
 !!red
-*color1:   #a82200
-*color9:   #ff3300
+*color1:   #e84f4f
+*color9:   #d23d3d
+! *color1:   #a82200
+! *color9:   #ff3300
 !!green
 *color2:   #a2b149
 *color10:  #c3f786
@@ -46,19 +48,21 @@ URxvt.depth: 32
 URxvt.termName: rxvt-256color
 URxvt.background:  #000000
 URxvt.foreground: white
+URxvt.cursorColor: #404040
+URxvt.font: xft:Ricty for Powerline:pixelsize=16:antialias=true
+! URxvt.boldFont: xft:Ricty for Powerline:pixelsize=18:bold:antialias=true
 ! URxvt.font: xft:anony for Powerline:pixelsize=15:antialias=true
 ! URxvt.boldFont: xft:anony for Powerline:pixelsize=15:antialias=true
-URxvt.font: xft:Ricty for Powerline:pixelsize=16:antialias=true
-URxvt.boldFont: xft:Ricty for Powerline:pixelsize=16:antialias=true
+URxvt.imFont: -*-mediam-r-*20-*
+URxvt.lineSpace: 1
 URxvt.geometry: 80x30
-URxvt.scrollBar: false
-URxvt.secondaryScroll: true
 URxvt.keepscroll: true
-URxvt.scrollBar_right: true
+URxvt.scrollBar: false
 URxvt.scrollBar_floating: true
-URxvt.scrollstyle: plain
+URxvt.scrollBar_right: true
 URxvt.scrollColor: #252525
-URxvt.cursorColor: #404040
+URxvt.scrollstyle: plain
+URxvt.secondaryScroll: true
 URxvt.transparent: true
 URxvt.tintColor: white
 URxvt.shading: 50
