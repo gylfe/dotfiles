@@ -1,4 +1,5 @@
 # initial setup file for both interactive and noninteractive zsh
+#
 case "${OSTYPE}" in
 # Linux ==========================
 linux*)
@@ -59,13 +60,31 @@ linux*)
     # export MANPATH=/usr/local/share/man:/usr/share/man:
 
     typeset -U path cdpath fpath # manpath
+
+    # [[ -f ~/.infinality ]] && source ~/.infinality
 ;;
 # Cygwin ==========================
 cygwin*)
 ;;
 # Mac(Unix) ==========================
 darwin*)
+    # zsh
+    export PATH=${HOME}/bin:${PATH}
+    export PATH=${HOME}/.zsh/bin:${PATH}
+    export FPATH=${HOME}/.zsh/func:${FPATH}
+
+    # ruby
+    export RUBYOPT=rubygems
+    if [ -d ${HOME}/.rbenv ]; then
+        export PATH=${HOME}/.rbenv/bin:${HOME}/.rbenv/shims:${PATH}
+        eval   "$(rbenv init - zsh)"
+        source /usr/local/opt/rbenv/completions/rbenv.zsh
+        export CONFIGURE_OPTS="--enable-shared --with-readline-dir=/usr/local --with-openssl-dir=/usr/local"
+    fi
+
+    # node.js
+    export NODEBREW_ROOT=${HOME}/.nodebrew
+    export PATH=${HOME}/.nodebrew/current/bin:${PATH}
 ;;
 esac
 
-# [[ -f ~/.infinality ]] && source ~/.infinality

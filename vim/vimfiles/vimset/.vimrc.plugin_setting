@@ -29,7 +29,7 @@ call watchdogs#setup (g:quickrun_config)
 "set data_directory=ramdisk_directry
 if has('win32')
     let g:vimfiler_data_directory = 'D:\.vimfiler'
-elseif  has('macunix')
+elseif  has('macunix darwin')
     let g:vimfiler_data_directory = '/Volumes/RamDisk/.vimfiler'
 else
     let g:vimfiler_data_directory = '/dev/shm/.vimfiler'
@@ -79,7 +79,7 @@ let g:unite_source_file_mru_filename_format = ''
 "data_directory はramdiskを指定
 if has('win32')
     let g:unite_data_directory = 'C:\.unite'
-elseif  has('macunix')
+elseif  has('macunix darwin')
     let g:unite_data_directory = '/Volumes/RamDisk/.unite'
 else
     let g:unite_data_directory = '/dev/shm/.unite'
@@ -164,7 +164,7 @@ map ;mg :MemoGrep<CR>
 " -------------------------------------------------------------------
 " Simplenote
 " Evernote
-"
+
 source ~/.vim/vimset/.vimrc.pass
 " -------------------------------------------------------------------
 " IM Control

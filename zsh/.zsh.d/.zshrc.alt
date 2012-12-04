@@ -45,8 +45,8 @@ if [ -f ${HOME}/.zsh/src/z/z.sh ]; then
     function _z_precmd() {
         _z --add "$(pwd -P)"
     }
+    autoload -Uz add-zsh-hook
+    add-zsh-hook precmd _z_precmd
 fi
-autoload -Uz add-zsh-hook
-add-zsh-hook precmd _z_precmd
 
-source ${HOME}/.zsh/unya.zsh
+[ -f ${HOME}/.zsh/src/unya.zsh ] && source ${HOME}/.zsh/src/unya.zsh

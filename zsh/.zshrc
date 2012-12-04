@@ -3,7 +3,6 @@
 ## Load when interactive
 # base setting --------------------
 HISTSIZE=4096
-HISTFILE=~/.log/.zshistry
 SAVEHIST=16384
 setopt   auto_resume
 setopt   extended_glob         # glob機能拡張
@@ -30,10 +29,6 @@ alias cp='cp --interactive'
 alias diff='colordiff'
 alias grep='grep --color=auto'
 alias less='less -R'
-alias l='ls --color'
-alias la='ls --color -a'
-alias ll='ls --color -al'
-alias ls='ls --color'
 alias ping='ping -c 5'
 alias rgrep='find . -name "*.git" -prune -o -type f -print0 | xargs -0 grep'
 alias vi='vim'
@@ -85,6 +80,11 @@ extract () {
 case "${OSTYPE}" in
 # linux ----------------------------
 linux*)
+    HISTFILE=~/.log/.zshistry
+    alias l='ls --color -F'
+    alias la='ls --color -a'
+    alias ll='ls --color -al'
+    alias ls='ls --color'
     alias td='todo.sh'
     alias rm='trash-put -i'
     alias myhome='sudo netcfg myhome'
@@ -106,6 +106,13 @@ linux*)
     ;;
 # cygwin ----------------------------
 cygwin*)
+    ;;
+darwin*)
+    HISTFILE=~/var/log/zshistory
+    alias l='ls -GF'
+    alias la='ls -GF -a'
+    alias ll='ls -GF -al'
+    alias ls='ls -GF'
     ;;
 esac
 
