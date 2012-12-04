@@ -45,15 +45,20 @@ linux*)
     [[ -s ${HOME}/.nvm/nvm.sh ]] && source ${HOME}/.nvm/nvm.sh
 
     # Git
+    export GISTY_DIR=${HOME}/dict/script/gists
     export PATH=${HOME}/git/tools/git-tasukete:${PATH}
+
+    # for git tools
+    export PATH=${HOME}/git/tools/mem:${PATH}
+    export PATH=${HOME}/git/tools/git-hg/bin:${PATH}
 
     # Autoload
     autoload zargs
 
     # path
-    export MANPATH=/usr/local/share/man:/usr/share/man:
+    # export MANPATH=/usr/local/share/man:/usr/share/man:
 
-    typeset -U path cdpath fpath manpath
+    typeset -U path cdpath fpath # manpath
 ;;
 # Cygwin ==========================
 cygwin*)

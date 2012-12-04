@@ -9,7 +9,7 @@ setopt   auto_resume
 setopt   extended_glob         # glob機能拡張
 setopt   long_list_jobs
 setopt   numeric_glob_sort
-setopt ignore_eof
+setopt   ignore_eof
 unsetopt caseglob              # ファイルグロブで大小非区別
 unsetopt promptcr
 autoload -Uz add-zsh-hook
@@ -23,15 +23,16 @@ export LC_CTYPE="ja_JP.UTF-8"
 export LC_TIME="en_US.UTF-8"
 
 # Alias -- modified commands -------
-setopt complete_aliases     # aliased ls needs if file/dir completions work
+setopt complete_aliases  # aliased ls needs if file/dir completions work
 
 alias c='clear'
 alias cp='cp --interactive'
 alias diff='colordiff'
 alias grep='grep --color=auto'
-alias la='ls -a --color'
 alias less='less -R'
-alias ll='ls -al --color'
+alias l='ls --color'
+alias la='ls --color -a'
+alias ll='ls --color -al'
 alias ls='ls --color'
 alias ping='ping -c 5'
 alias rgrep='find . -name "*.git" -prune -o -type f -print0 | xargs -0 grep'
@@ -97,10 +98,11 @@ linux*)
     alias ,code='cd ~/dict/dropbox/code/Dropbox && ls -a'
     alias ,pri='cd ~/dict/dropbox/private/Dropbox && ls -a'
     alias bmouse='sudo hidd --connect 00:07:61:F4:E7:68'
+    alias iron='iron --disk-cache-dir=/tmp/cache'
 
     # For coding
     alias study='vim ~/dict/script/ruby/sample/tmp.rb'
-    alias ,script='cd ~/dict/script/ruby/sample && ls -a --color'
+    alias ,script='cd ~/dict/script/ruby/sample'
     ;;
 # cygwin ----------------------------
 cygwin*)
@@ -187,7 +189,6 @@ function _judgement_precmd {
     PROMPT="%{${fg[magenta]}%}${HOST%%.*} ${PROMPT}"
 ;
 
-    echo -n "\e]2;$(data)\a"
 }
 
 add-zsh-hook precmd _judgement_precmd
@@ -203,9 +204,9 @@ export CLICOLOR=true
 #predict-on
 autoload zed   # light editor
 
-function chpwd(){
-    ls
-}
+# function chpwd(){
+#     ls -a --color
+# }
 
 # google 検索期間を指定(y,w,h,m)
 function google-time() {
@@ -240,47 +241,5 @@ else
 fi
 
 [ -f ~/.zsh/.zshrc.alt ] && source ~/.zsh/.zshrc.alt
-
-# # git stash count
-# function git_prompt_stash_count {
-#   local COUNT=$(git stash list 2>/dev/null | wc -l | tr -d ' ')
-#   if [ "$COUNT" -gt 0 ]; then
-#     echo " ($COUNT)"
-#   fi
-# }
-# 
-# autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
-# 
-# function rprompt-git-current-branch {
-#     local name st color action
-# 
-#     if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
-#       return
-#     fi
-# 
-#     name=$(basename "`git symbolic-ref HEAD 2> /dev/null`")
-#     if [[ -z $name ]]; then
-#       return
-#     fi
-# 
-#     st=`git status 2> /dev/null`
-#     if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-#       color=${fg[blue]}
-#     elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
-#       color=${fg[yellow]}
-#     elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
-#       color=${fg_bold[red]}
-#     else
-#       color=${fg[red]}
-#     fi
-# 
-#     gitdir=`git rev-parse --git-dir 2> /dev/null`
-#     action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
-# 
-#     # %{...%} surrounds escape string
-#     echo "%{$color%}$name$action`git_prompt_stash_count`$color%{$reset_color%}"
-# }
-# 
-# # how to use
-# PROMPT = "`rprompt-git-current-branch`"
+[ -f ~/.zsh/.zshrc.pass ] && source ~/.zsh/.zshrc.pass
 

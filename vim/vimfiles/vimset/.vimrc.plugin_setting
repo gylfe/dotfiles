@@ -165,7 +165,7 @@ map ;mg :MemoGrep<CR>
 " Simplenote
 " Evernote
 "
-  source ~/.vimrc.pass
+source ~/.vim/vimset/.vimrc.pass
 " -------------------------------------------------------------------
 " IM Control
 "

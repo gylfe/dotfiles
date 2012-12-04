@@ -97,3 +97,10 @@ XTerm*saveLines: 2048
 !XTerm*geometry: 50x20+300+100
 XTerm*geometry: 30x10
 
+!Xft settings
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintsight
+

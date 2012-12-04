@@ -48,3 +48,5 @@ if [ -f ${HOME}/.zsh/src/z/z.sh ]; then
 fi
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd _z_precmd
+
+source ${HOME}/.zsh/unya.zsh
