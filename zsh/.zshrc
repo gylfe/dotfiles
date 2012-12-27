@@ -21,101 +21,6 @@ export LANG=ja_JP.UTF-8
 export LC_CTYPE="ja_JP.UTF-8"
 export LC_TIME="en_US.UTF-8"
 
-# Alias -- modified commands -------
-setopt complete_aliases  # aliased ls needs if file/dir completions work
-
-alias c='clear'
-alias cp='cp --interactive'
-alias diff='colordiff'
-alias grep='grep --color=auto'
-alias less='less -R'
-alias ping='ping -c 5'
-alias rgrep='find . -name "*.git" -prune -o -type f -print0 | xargs -0 grep'
-alias vi='vim'
-alias xterm='xterm -en utf8'
-
-alias ipget='wget -q -O - ipcheck.mycurse.net'
-alias memfree='sudo sync && sudo sysctl -w vm.drop_caches=3'
-alias volp='amixer sset Master 5%+'
-alias volm='amixer sset Master 5%-'
-alias mpd='sudo mpd && mpdscribble'
-
-
-function rationalise-dot(){
-    if [[ $LBUFFER = *.. ]]; then
-        LBUFFER+=/..
-    else
-        LBUFFER+=.
-    fi
-}
-
-zle -N rationalise-dot
-bindkey . rationalise-dot
-
-
-extract () {
-    if [ -f $1 ] ; then
-        case $1 in
-            *.tar.bz2) tar xvjf $1    ;;
-            *.tar.gz)  tar xvzf $1    ;;
-            *.tar.xz)  tar xvJf $1    ;;
-            *.bz2)     bunzip2 $1     ;;
-            *.rar)     unrar x $1     ;;
-            *.gz)      gunzip $1      ;;
-            *.tar)     tar xvf $1     ;;
-            *.tbz2)    tar xvjf $1    ;;
-            *.tgz)     tar xvzf $1    ;;
-            *.zip)     unzip $1       ;;
-            *.Z)       uncompress $1  ;;
-            *.7z)      7z x $1        ;;
-            *.lzma)    lzma -dv $1    ;;
-            *.xz)      xz -dv $1      ;;
-            *) echo "don't know how to extract '$1'..." ;;
-        esac
-    else
-        echo "'$1' is not a valid file!"
-    fi
-}
-
-case "${OSTYPE}" in
-# linux ----------------------------
-linux*)
-    HISTFILE=~/.log/.zshistry
-    alias l='ls --color -F'
-    alias la='ls --color -a'
-    alias ll='ls --color -al'
-    alias ls='ls --color'
-    alias td='todo.sh'
-    alias rm='trash-put -i'
-    alias myhome='sudo netcfg myhome'
-    alias dropboxw='sh $HOME/dict/dropbox/auto_dropbox.sh'
-    alias mbplack='cd /home/gylfe/git/tools/markdown-binder && plackup'
-    alias gentoo!='su - && mount /dev/sda? /mnt/gentoo
-                 \ mount -t proc none /mnt/gentoo/proc
-                 \ mount --rbind /dev /mnt/gentoo/dev
-                 \ chroot /mnt/gentoo /bin/zsh'
-    alias ,doc='cd ~/dict/dropbox/code/Dropbox/docs && ls -a'
-    alias ,code='cd ~/dict/dropbox/code/Dropbox && ls -a'
-    alias ,pri='cd ~/dict/dropbox/private/Dropbox && ls -a'
-    alias bmouse='sudo hidd --connect 00:07:61:F4:E7:68'
-    alias iron='iron --disk-cache-dir=/tmp/cache'
-
-    # For coding
-    alias study='vim ~/dict/script/ruby/sample/tmp.rb'
-    alias ,script='cd ~/dict/script/ruby/sample'
-    ;;
-# cygwin ----------------------------
-cygwin*)
-    ;;
-darwin*)
-    HISTFILE=~/var/log/zshistory
-    alias l='ls -GF'
-    alias la='ls -GF -a'
-    alias ll='ls -GF -al'
-    alias ls='ls -GF'
-    ;;
-esac
-
 # Key Binding ------------------------
 bindkey -v
 
@@ -174,34 +79,33 @@ bindkey "" history-beginning-search-backward-end
 bindkey "" history-beginning-search-forward-end
 
 
-# Prompt ----------------------------
+# Prompt ------------------------
 autoload -Uz promptinit: promptinit
 setopt   prompt_subst
 autoload -U colors; colors
 
 function _judgement_precmd {
-    
-    # prompt color (red if root) :
-    case ${UID} in
-        0    ) color=$fg_bold[red] ;;
-        1000 ) color=$fg_bold[blue] ;;
-        *    ) color=$fg_bold[yellow] ;;
-    esac
+  
+  # prompt color (red if root) :
+  case ${UID} in
+    0    ) color=$fg_bold[red] ;;
+    1000 ) color=$fg_bold[blue] ;;
+    *    ) color=$fg_bold[yellow] ;;
+  esac
 
-    PROMPT="%{$color%}%n%# "
-    RPROMPT="%{${fg[white]}%}%~%{${reset_color}%}"
-    SPROMPT="correct: %R -> %r ? "
+  PROMPT="%{$color%}%n%# "
+  RPROMPT="%{${fg[white]}%}%~%{${reset_color}%}"
+  SPROMPT="correct: %R -> %r ? "
 
-[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-    PROMPT="%{${fg[magenta]}%}${HOST%%.*} ${PROMPT}"
+[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && PROMPT="%{${fg[magenta]}%}${HOST%%.*} ${PROMPT}"
 ;
 
 }
 
 add-zsh-hook precmd _judgement_precmd
 
-# terminal configuration
 
+# terminal configuration ----------
 unset  LSCOLORS
 export LS_COLORS='di=36:ln=35:so=32:pi=33:ex=31:bd=46;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 export CLICOLOR=true
@@ -215,10 +119,42 @@ autoload zed   # light editor
 #     ls -a --color
 # }
 
-# google 検索期間を指定(y,w,h,m)
-function google-time() {
-    w3m "http://www.google.co.jp/search?num=50&hl=ja&lr=lang_ja&q=$2&tbs=qdr:${1}"
+rationalise-dot() {
+  if [[ $LBUFFER = *.. ]]; then
+    LBUFFER+=/..
+  else
+    LBUFFER+=.
+  fi
 }
+
+zle -N rationalise-dot
+bindkey . rationalise-dot
+
+
+extract() {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2) tar xvjf $1    ;;
+      *.tar.gz)  tar xvzf $1    ;;
+      *.tar.xz)  tar xvJf $1    ;;
+      *.bz2)     bunzip2 $1     ;;
+      *.rar)     unrar x $1     ;;
+      *.gz)      gunzip $1      ;;
+      *.tar)     tar xvf $1     ;;
+      *.tbz2)    tar xvjf $1    ;;
+      *.tgz)     tar xvzf $1    ;;
+      *.zip)     unzip $1       ;;
+      *.Z)       uncompress $1  ;;
+      *.7z)      7z x $1        ;;
+      *.lzma)    lzma -dv $1    ;;
+      *.xz)      xz -dv $1      ;;
+      *) echo "don't know how to extract '$1'..." ;;
+    esac
+  else
+    echo "'$1' is not a valid file!"
+  fi
+}
+
 
 # command stack for <C-q>
 show_buffer_stack() {
@@ -232,21 +168,23 @@ bindkey '^Q' show_buffer_stack
 
 # for directory stack
 function dir() {
-    if [ -z "$1" ]; then
-        dirs -pv
-    else
-        dirs -pv | fgrep "$1"
-    fi
+  if [ -z "$1" ]; then
+    dirs -pv
+  else
+    dirs -pv | fgrep "$1"
+  fi
 }
 
 
 # Git wrapper `gem install hub`
 if [ -x "`which hub 2> /dev/null`" ]; then
-    alias git=hub
+  alias git=hub
 else
-    alias git=git
+  alias git=git
 fi
 
-[ -f ~/.zsh/.zshrc.alt ] && source ~/.zsh/.zshrc.alt
-[ -f ~/.zsh/.zshrc.pass ] && source ~/.zsh/.zshrc.pass
+# Load configures ------------
+[ -f ~/.zsh/conf/.zshrc.alias ] && source ~/.zsh/conf/.zshrc.alias
+[ -f ~/.zsh/conf/.zshrc.alt ] && source ~/.zsh/conf/.zshrc.alt
+[ -f ~/.zsh/conf/.zshrc.pass ] && source ~/.zsh/conf/.zshrc.pass
 

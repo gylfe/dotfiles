@@ -1,12 +1,12 @@
-#!/bin/sh
+#!/bin/zsh
 if test $# -eq 0;then
-    echo "error: argument is required"
-    exit
+  echo "error: argument is required"
+  exit
 else
-    KEY=$(python2 -c "import urllib;print urllib.quote_plus('$*')")
-    URI='http://eow.alc.co.jp/'"$KEY"/
-    wget -q -O - "$URI"|\
-        sed -ne '/id="resultsList"/,/検索結果本体/p'|\
-        w3m -dump -T text/html|\
-        less
+  KEY=$(python2 -c "import urllib;print urllib.quote_plus('$*')")
+  URI='http://eow.alc.co.jp/'"$KEY"/
+  wget -q -O - "$URI"|\
+    sed -ne '/id="resultsList"/,/検索結果本体/p'|\
+    w3m -dump -T text/html|\
+    less
 fi

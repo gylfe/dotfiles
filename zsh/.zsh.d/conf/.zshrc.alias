@@ -1,0 +1,64 @@
+# Alias settings"
+
+alias c='clear'
+alias diff='colordiff'
+alias grep='grep --color=auto'
+alias less='less -R'
+alias ping='ping -c 5'
+alias rgrep='find . -name "*.git" -prune -o -type f -print0 | xargs -0 grep'
+alias vi='vim'
+alias xterm='xterm -en utf8'
+
+alias ipget='wget -q -O - ipcheck.mycurse.net'
+alias memfree='sudo sync && sudo sysctl -w vm.drop_caches=3'
+alias volp='amixer sset Master 5%+'
+alias volm='amixer sset Master 5%-'
+alias mpd='sudo mpd && mpdscribble'
+
+
+
+case "${OSTYPE}" in
+# linux ----------------------------
+linux*)
+  HISTFILE=~/.log/.zshistry
+  alias cp='cp --interactive'
+  alias l='ls --color -F'
+  alias la='ls --color -a'
+  alias ll='ls --color -al'
+  alias ls='ls --color'
+  alias td='todo.sh'
+  alias rm='trash-put -i'
+  alias myhome='sudo netcfg myhome'
+  alias dropboxw='sh $HOME/dict/dropbox/auto_dropbox.sh'
+  alias mbplack='cd /home/gylfe/git/tools/markdown-binder && plackup'
+  alias gentoo!='su - && mount /dev/sda? /mnt/gentoo
+               \ mount -t proc none /mnt/gentoo/proc
+               \ mount --rbind /dev /mnt/gentoo/dev
+               \ chroot /mnt/gentoo /bin/zsh'
+  alias ,doc='cd ~/dict/dropbox/code/Dropbox/docs && ls -a'
+  alias ,code='cd ~/dict/dropbox/code/Dropbox && ls -a'
+  alias ,pri='cd ~/dict/dropbox/private/Dropbox && ls -a'
+  alias bmouse='sudo hidd --connect 00:07:61:F4:E7:68'
+  alias iron='iron --disk-cache-dir=/tmp/cache'
+
+  # For coding
+  alias study='vim ~/dict/script/ruby/sample/tmp.rb'
+  alias ,script='cd ~/dict/script/ruby/sample'
+  ;;
+# cygwin ----------------------------
+cygwin*)
+  ;;
+darwin*)
+  HISTFILE=~/var/log/zshistory
+  alias cp='cp -R'
+  alias rm='rm -i'
+  alias l='ls -GF'
+  alias la='ls -GF -a'
+  alias ll='ls -GF -al'
+  alias ls='ls -GF'
+  alias python2='python'
+  alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+  alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+  ;;
+esac
+

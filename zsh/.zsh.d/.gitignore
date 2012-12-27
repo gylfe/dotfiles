@@ -4,9 +4,9 @@
 
 # 目をかけてやってもいい
 !/.gitignore
-!/.zshrc.alt
 !antigen/
 !bin/
+!conf/
 !func/
 !src/
 
