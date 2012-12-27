@@ -7,7 +7,7 @@ set fileencodings=utf-8,cp932,euc-jp,iso-20220-jp,default,latin,sjis
 set fileformats=unix,dos
 set backup
 set swapfile
-set backupdir=${HOME}/.backup
+set backupdir=${HOME}/var/backups/vim
 let &directory=&backupdir
 set history=50
 

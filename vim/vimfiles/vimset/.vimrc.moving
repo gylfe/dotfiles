@@ -20,11 +20,10 @@ nmap 9 $
 " inoremap Od <Left>
 " inoremap Oc <Right>
 
-" if !has('gui_running')
-    set notimeout
-    set ttimeout
-    set ttimeoutlen=100
-" endif
+if !has('gui_running')
+    set timeout timeoutlen=1000 ttimeoutlen=75
+    " set notimeout ttimeout ttimeoutlen=100
+endif
 
 "inoremap  <Down> <C-c>gja
 "inoremap  <up> <C-c>gka

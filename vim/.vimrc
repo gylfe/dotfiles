@@ -24,3 +24,4 @@ source ${HOME}/.vim/vimset/.vimrc.keymap
 source ${HOME}/.vim//vimset/.vimrc.misc
 "プラグインに依存するアレ
 source ${HOME}/.vim/vimset/.vimrc.plugin_setting
+

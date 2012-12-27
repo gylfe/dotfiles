@@ -8,6 +8,9 @@ highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=white
 match ZenkakuSpace /　/ 
 " http://d.hatena.ne.jp/magicalhat/20081223/1230013283
 
+if has('gui_mac')
+  transparency=4
+end
 
 "CurrentLine HighLight
     "highlight CursorLine ctermbg=Black

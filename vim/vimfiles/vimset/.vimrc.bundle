@@ -13,6 +13,8 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 " ------------------------------------------------------------------
 " plugins
+"
+
 NeoBundle 'tpope/vim-fugitive'
   "NeoBundle 'git://git.wincent.com/command-t.git'
 
@@ -44,9 +46,6 @@ NeoBundle 'git://github.com/tyru/open-browser.vim'
 NeoBundle 'git://github.com/tpope/vim-speeddating'
 NeoBundle 'git://github.com/tpope/vim-repeat'
 
-" ------------------------------------------------------------------
-" File
-NeoBundle 'git://github.com/vim-scripts/mru.vim'
 
 " ------------------------------------------------------------------
 " Coding
@@ -63,12 +62,6 @@ NeoBundle 'git://github.com/ervandew/ag'
 NeoBundle 'git://github.com/mileszs/ack.vim'
 " NeoBundle 'git://github.com/eomatsw/ag.vim'
 "
-" ------------------------------------------------------------------
-"  Input
-NeoBundle 'git://github.com/bouzuya/vim-ibus'
-    "NeoBundle 'git://github.com/fuenor/im_control.vim' "IM Control
-    "NeoBundle 'git://github.com/anyakichi/skk.vim'
-
 " ------------------------------------------------------------------
 " Complete
 NeoBundle 'git://github.com/Shougo/neocomplcache'
@@ -186,6 +179,14 @@ NeoBundle 'git://github.com/mfumi/mpc.vim'
 NeoBundle 'git://github.com/mattn/benchvimrc-vim'
 NeoBundle 'git://github.com/thinca/vim-scouter'
   "NeoBundle 'koron/u-nya-vim'
+
+if has('macunix')
+  NeoBundle 'git://github.com/itspriddle/vim-marked'
+else
+  NeoBundle 'git://github.com/bouzuya/vim-ibus'
+    "NeoBundle 'git://github.com/fuenor/im_control.vim' "IM Control
+    "NeoBundle 'git://github.com/anyakichi/skk.vim'
+endif
 
 " ------------------------------------------------------------------
 "

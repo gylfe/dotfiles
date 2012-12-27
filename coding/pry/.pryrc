@@ -4,6 +4,7 @@
 
 Pry.config.editor = "vim"
 Pry.config.theme = "monokai"
+Pry.config.history.file = "~/var/log/pry_history"
 
 Pry.config.prompt_name = File.basename(Dir.pwd)
 Pry.config.prompt = [proc {|obj,nest_level,pry| "[#{pry.input_array.size}] pry:#{obj}> "},
