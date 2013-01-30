@@ -12,6 +12,7 @@ group :development do
   gem 'pry-rails'
 
   gem 'awesome_print'
+  gem 'pry-clipboard'
 
   # for rails
   gem 'hirb-unicode' #`rails c`=>`Hirb.enable`

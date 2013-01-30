@@ -70,7 +70,7 @@ cygwin*)
 darwin*)
 
   #homebrew
-  PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+  PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin
   #vim
   export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 
@@ -104,9 +104,8 @@ darwin*)
     nodebrew use default >/dev/null
   fi
 
-  # git
-  export PATH=${HOME}/repos/github/git-tasukete:${PATH}
-
+  # Haskell - cabal
+  export PATH=${HOME}/.cabal/bin:${PATH}
 
   # Autoload
   autoload zargs

@@ -1,5 +1,7 @@
 # Alias settings"
 
+disable r
+
 alias c='clear'
 alias diff='colordiff'
 alias grep='grep --color=auto'
@@ -7,13 +9,13 @@ alias less='less -R'
 alias ping='ping -c 5'
 alias rgrep='find . -name "*.git" -prune -o -type f -print0 | xargs -0 grep'
 alias vi='vim'
+alias :q='exit'
 alias xterm='xterm -en utf8'
 
 alias ipget='wget -q -O - ipcheck.mycurse.net'
 alias memfree='sudo sync && sudo sysctl -w vm.drop_caches=3'
 alias volp='amixer sset Master 5%+'
 alias volm='amixer sset Master 5%-'
-alias mpd='sudo mpd && mpdscribble'
 
 
 
@@ -40,6 +42,7 @@ linux*)
   alias ,pri='cd ~/dict/dropbox/private/Dropbox && ls -a'
   alias bmouse='sudo hidd --connect 00:07:61:F4:E7:68'
   alias iron='iron --disk-cache-dir=/tmp/cache'
+  alias mpd='sudo mpd && mpdscribble'
 
   # For coding
   alias study='vim ~/dict/script/ruby/sample/tmp.rb'
@@ -49,7 +52,7 @@ linux*)
 cygwin*)
   ;;
 darwin*)
-  HISTFILE=~/var/log/zshistory
+  HISTFILE=~/var/log/.zshistory
   alias cp='cp -R'
   alias rm='rm -i'
   alias l='ls -GF'

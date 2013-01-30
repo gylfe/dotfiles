@@ -187,3 +187,14 @@ let g:Powerline_mode_n = 'NORMAL'
 "let g:Powerline_mode_s = '選択'
 "let g:Powerline_mode_S = '行選択'
 "let g:Powerline_mode_cs = '矩形選択'
+
+
+"Rainbox_parentheses =================================================
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+au Syntax * RainbowParenthesesLoadChevrons
+
+let g:rbpt_max = 7
+let g:rbpt_loadcmd_toggle = 0

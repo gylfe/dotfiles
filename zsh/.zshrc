@@ -1,6 +1,8 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
+#
 ## This is load after .zshenv
 ## Load when interactive
+#
 # base setting --------------------
 HISTSIZE=4096
 SAVEHIST=16384
@@ -13,7 +15,7 @@ unsetopt caseglob              # ファイルグロブで大小非区別
 unsetopt promptcr
 autoload -Uz add-zsh-hook
 REPORTTIME=100  # 100秒以上かかった処理の詳細表示
-watch="all"
+# watch="all"
 # log
 
 # Lang ----------------------------
@@ -24,6 +26,26 @@ export LC_TIME="en_US.UTF-8"
 # Key Binding ------------------------
 bindkey -v
 
+# bindkey "^A" end-of-line
+# bindkey "^I" beginning-of-line
+# bindkey "^H" backward-char
+# bindkey "^L" forward-char
+# bindkey "^T" transpose-chars
+
+# color configuration ----------
+local DEFAULT=$'%{^[[m%]]}'$
+local RED=$'%{^[[1;31m%]]}'$
+local GREEN=$'%{^[[1;32m%]]}'$
+local YELLOW=$'%{^[[1;33m%]]}'$
+local BLUE=$'%{^[[1;34m%]]}'$
+local PURPPLE=$'%{^[[1;35m%]]}'$
+local LIGHT_BLUE=$'%{^[[1;36m%]]}'$
+local WHITE=$'%{^[[1;37m%]]}'$
+
+unset  LS_COLORS
+export LS_COLORS='di=36:ln=35:so=32:pi=33:ex=31:bd=46;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+export CLICOLOR=true
+
 # Completement -----------------------
 autoload -U compinit; compinit  # 補完有効化
 setopt auto_cd
@@ -32,8 +54,7 @@ setopt auto_menu                # TABで補完候補切り替え
 setopt auto_param_keys          # ()等の自動補完
 setopt auto_param_slash
 setopt auto_pushd
-setopt pushd_ignore_dups        # 同じディレクトリをpushdしない
-setopt pushd_minus
+setopt brace_ccl                # mkdir {1-3} -> make folder 1,2,3
 setopt complete_in_word
 setopt correct
 setopt glob_complete
@@ -49,6 +70,8 @@ setopt nonomatch                # よう分からんが no matches foundと怒�
 setopt notify                   # notify end states of background job
 setopt numeric_glob_sort
 setopt print_eight_bit          # 日本語ファイル名等, 8bitを通す
+setopt pushd_ignore_dups        # 同じディレクトリをpushdしない
+setopt pushd_minus
 
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}  # 補完候補に色付け
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'  # 補完時に文字の大小を区別しない
@@ -56,9 +79,19 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'  # 補完時に文字の大�
 ### _oldlist:前回の補完候補を利用 _complete:補完する _match:glob展開なし
 ### _ignored:除外対象も補完候補に _approximate:似ているものも補完候補に
 ### _prefix:カーソル以降を無視してカーソル位置まで補完
-zstyle ':completion:*' completer _oldlist _complete _match _ignored _approximate _prefix
-zstyle ':completion:*' use-cache yes  # 補完候補をキャッシュする
+zstyle ':completion:*' completer _oldlist _complete _match _history _ignored _approximate _prefix _list
+zstyle ':completion:*' use-cache true  # 補完候補をキャッシュする
 zstyle ':completion:*' verbose yes  # 補完の詳細な表示
+zstyle ':completion:*' list-separator '-->'
+zstyle ':completion:sudo' environ PATH="$SUDO_PATH:$PATH"
+
+zstyle ':completion:messages' format '%F{YELLOW}%d'$DEFAULT
+zstyle ':completion:warnings' format '%F{RED}No matches for:''%F{YELLOW} %d'$DEFAULT
+zstyle ':completion:descriptions' format '%F{YELLOW}completing %B%d%b'$DEFAULT
+zstyle ':completion:options' description 'yes'
+zstyle ':completion:descriptions' format '%F{YELLOW}completing %B%d%b%f'$DEFAULT
+
+zstyle ':completion:*' group-name ''
 
 
 # History Search ------------------
@@ -82,6 +115,8 @@ bindkey "" history-beginning-search-forward-end
 # Prompt ------------------------
 autoload -Uz promptinit: promptinit
 setopt   prompt_subst
+setopt   prompt_percent
+setopt   transient_rprompt
 autoload -U colors; colors
 
 function _judgement_precmd {
@@ -97,6 +132,10 @@ function _judgement_precmd {
   RPROMPT="%{${fg[white]}%}%~%{${reset_color}%}"
   SPROMPT="correct: %R -> %r ? "
 
+  # PROMPT2=""
+  # PROMPT3=
+  # PROMPT4=
+  
 [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && PROMPT="%{${fg[magenta]}%}${HOST%%.*} ${PROMPT}"
 ;
 
@@ -104,11 +143,6 @@ function _judgement_precmd {
 
 add-zsh-hook precmd _judgement_precmd
 
-
-# terminal configuration ----------
-unset  LSCOLORS
-export LS_COLORS='di=36:ln=35:so=32:pi=33:ex=31:bd=46;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-export CLICOLOR=true
 
 # Autoload ------------------------
 #autoload predict-on
@@ -186,5 +220,5 @@ fi
 # Load configures ------------
 [ -f ~/.zsh/conf/.zshrc.alias ] && source ~/.zsh/conf/.zshrc.alias
 [ -f ~/.zsh/conf/.zshrc.alt ] && source ~/.zsh/conf/.zshrc.alt
-[ -f ~/.zsh/conf/.zshrc.pass ] && source ~/.zsh/conf/.zshrc.pass
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 

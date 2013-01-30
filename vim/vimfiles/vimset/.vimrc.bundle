@@ -91,6 +91,7 @@ NeoBundle 'git://github.com/Lokaltog/vim-powerline'
   "NeoBundle 'vim-scripts/hickop'
   "NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'vim-scripts/Ubloh-Color-Scheme'
+NeoBundle 'kien/rainbow_parentheses.vim'
 
 " ------------------------------------------------------------------
 " ruby
@@ -127,11 +128,18 @@ NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'sophacles/vim-processing'
 " ------------------------------------------------------------------
 "Markdown
-NeoBundle 'glidenote/memolist.vim'
-NeoBundle 'glidenote/octoeditor.vim'
-NeoBundle 'mivok/vimtodo'
-NeoBundle 'tpope/vim-markdown'
+NeoBundle 'git://github.com/mivok/vimtodo'
+NeoBundle 'git://github.com/tpope/vim-markdown'
   "NeoBundle 'hallison/vim-markdown'
+
+" ------------------------------------------------------------------
+"Document
+NeoBundle 'git://github.com/glidenote/memolist.vim'
+NeoBundle 'git://github.com/glidenote/octoeditor.vim'
+NeoBundle 'git://github.com/glidenote/newdayone.vim'
+NeoBundle 'git://github.com/vim-scripts/VOoM'
+NeoBundle 'git://github.com/mattn/excitetranslate-vim'
+
 " ------------------------------------------------------------------
 "Comment
 NeoBundle 'kana/vim-niceblock'
