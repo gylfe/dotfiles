@@ -1,3 +1,5 @@
+let OSTYPE = system('uname')
+
 "NeoBundle.vimで管理してるpluginを読み込む
 source ${HOME}/.vim/vimset/.vimrc.bundle
 "基本設定

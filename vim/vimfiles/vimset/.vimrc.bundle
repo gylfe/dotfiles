@@ -188,9 +188,9 @@ NeoBundle 'git://github.com/mattn/benchvimrc-vim'
 NeoBundle 'git://github.com/thinca/vim-scouter'
   "NeoBundle 'koron/u-nya-vim'
 
-if has('macunix')
+if OSTYPE == "Darwin\n"
   NeoBundle 'git://github.com/itspriddle/vim-marked'
-else
+elseif OSTYPE == "Linux\n"
   NeoBundle 'git://github.com/bouzuya/vim-ibus'
     "NeoBundle 'git://github.com/fuenor/im_control.vim' "IM Control
     "NeoBundle 'git://github.com/anyakichi/skk.vim'
