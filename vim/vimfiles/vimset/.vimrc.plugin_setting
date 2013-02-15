@@ -1,8 +1,6 @@
 " --------------------------------------------------------------
 " Plugins Settings
 "
-"
-let OSTYPE = system('uname')
 " --------------------------------------------------------------
 " watchdogs
 " cf. http://d.hatena.ne.jp/osyo-manga/20120924/1348473304
@@ -87,15 +85,22 @@ endif
 let g:unite_source_file_mru_filename_format = ''
 
 "data_directory はramdiskを指定
-if has('win32')
-    let g:unite_data_directory = 'C:\.unite'
-elseif  has('macunix')
-    let g:unite_data_directory = '/Volumes/RamDisk/.unite'
+" if has('win32')
+"   let g:unite_data_directory = 'C:\.unite'
+" elseif  has('macunix')
+"   let g:unite_data_directory = '/Volumes/RamDisk/.unite'
+" else
+"   let g:unite_data_directory = '/dev/shm/.unite'
+" endif
+" 
+if OSTYPE == "Darwin\n"
+  let g:unite_data_directory = '/Volumes/RamDisk/.unite'
+elseif OSTYPE == "Linux\n"
+  let g:unite_data_directory = '/dev/shm/.unite'
 else
-    let g:unite_data_directory = '/dev/shm/.unite'
-    "let g:unite_data_directory = $HOME . '/.unite'
+  let g:unite_data_directory = 'C:\.unite'
 endif
- 
+
 "現在開いているファイルのディレクトリ下のファイル一覧。
 "開いていない場合はカレントディレクトリ
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
