@@ -43,7 +43,8 @@ linux*)
 
   # node.js
   export PYTHON=python2
-  [[ -s ${HOME}/.nvm/nvm.sh ]] && source ${HOME}/.nvm/nvm.sh
+  export PATH=${HOME}/.nodebrew/current/bin:${PATH}
+  # [[ -s ${HOME}/.nvm/nvm.sh ]] && source ${HOME}/.nvm/nvm.sh
 
   # Git
   export GISTY_DIR=${HOME}/dict/script/gists
