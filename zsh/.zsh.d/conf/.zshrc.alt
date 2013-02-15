@@ -34,12 +34,18 @@
 # 
 # }}}
 
+
 # Local scripts
+case "${OSTYPE}" in
+    linux*)
+        [ -f ${HOME}/.zsh/src/autojump/bin/autojump.zsh ] && source ${HOME}/.zsh/src/autojump/bin/autojump.zsh
+        ;;
+    darwin*)
+        [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+esac
+
 [ -f ${HOME}/.zsh/src/bundler-exec.zsh ] && source ${HOME}/.zsh/src/bundler-exec.zsh
-
-[ -f ${HOME}/.zsh/src/autojump/bin/autojump.zsh ] && source ${HOME}/.zsh/src/autojump/bin/autojump.zsh
-
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+[ -f ${HOME}/.zsh/src/unya.zsh ] && source ${HOME}/.zsh/src/unya.zsh
 
 if [ -f ${HOME}/.zsh/src/z/z.sh ]; then
   source ${HOME}/.zsh/src/z/z.sh
@@ -50,5 +56,4 @@ if [ -f ${HOME}/.zsh/src/z/z.sh ]; then
   add-zsh-hook precmd _z_precmd
 fi
 
-[ -f ${HOME}/.zsh/src/unya.zsh ] && source ${HOME}/.zsh/src/unya.zsh
 

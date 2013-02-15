@@ -1,7 +1,5 @@
 # Alias settings"
 
-disable r
-
 alias c='clear'
 alias diff='colordiff'
 alias grep='grep --color=auto'
@@ -53,8 +51,8 @@ cygwin*)
   ;;
 darwin*)
   HISTFILE=~/var/log/.zshistory
+  alias sudoedit='sudo -e'
   alias cp='cp -R'
-  alias rm='rm -i'
   alias l='ls -GF'
   alias la='ls -GF -a'
   alias ll='ls -GF -al'
@@ -62,6 +60,16 @@ darwin*)
   alias python2='python'
   alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
   alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+  alias mpd='mpd && mpdscribble'
+  # alias rm='rm -i'
+  alias rm='trash'
+
+  #for homebrew
+  alias b='brew'
+  alias bi='brew info'
+  alias bup='brew update'
+
+  disable r  # for R in homebrew
   ;;
 esac
 

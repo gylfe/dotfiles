@@ -89,11 +89,12 @@ darwin*)
 
   # ruby
   export RUBYOPT=rubygems
-  if [ -d ${HOME}/usr/bin/rbenv ]; then
-    export PATH=${HOME}/usr/bin/rbenv/shims:${PATH}
+  if [ -d ${HOME}/.rbenv ]; then
+    export PATH=${HOME}/.rbenv/shims:${PATH}
     eval   "$(rbenv init - zsh)"
     source /usr/local/opt/rbenv/completions/rbenv.zsh
-    export CONFIGURE_OPTS="--enable-shared --with-readline-dir=/usr/local --with-openssl-dir=/usr/local"
+    export RUBY_CONFIGURE_OPTS="--with-open-ssl-dir=$(brew --prefix openssl)"
+    export CONFIGURE_OPTS="--enable-shared --with-readline-dir=$(brew --prefix readline) --with-lzo2lib --with-openssl-dir=$(brew --prefix openssl) --with-curl-dir=$(brew --prefix curl)"
   fi
 
   # node.js
