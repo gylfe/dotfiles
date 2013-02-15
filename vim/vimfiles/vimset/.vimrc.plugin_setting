@@ -1,6 +1,8 @@
 " --------------------------------------------------------------
 " Plugins Settings
 "
+"
+let OSTYPE = system('uname')
 " --------------------------------------------------------------
 " watchdogs
 " cf. http://d.hatena.ne.jp/osyo-manga/20120924/1348473304
@@ -28,14 +30,21 @@ call watchdogs#setup (g:quickrun_config)
 "vimfiler
 "
 "set data_directory=ramdisk_directry
-if has('win32')
-  let g:vimfiler_data_directory = 'D:\.vimfiler'
-elseif  has('macunix')
+" if has('win32')
+"   let g:vimfiler_data_directory = 'D:\.vimfiler'
+" elseif  has('macunix')
+"   let g:vimfiler_data_directory = '/Volumes/RamDisk/.vimfiler'
+" else
+"   let g:vimfiler_data_directory = '/dev/shm/.vimfiler'
+"   "let g:vimfiler_data_directory = $HOME . '/.unite'
+" endif
+
+if OSTYPE == "Darwin\n"
   let g:vimfiler_data_directory = '/Volumes/RamDisk/.vimfiler'
-else
+elseif OSTYPE == "Linux\n"
   let g:vimfiler_data_directory = '/dev/shm/.vimfiler'
-  "let g:vimfiler_data_directory = $HOME . '/.unite'
 endif
+
 
 "open current buffer directry
 nnoremap <silent> <Leader>fe :<C-u>VimFilerBufferDir -quit<CR>
