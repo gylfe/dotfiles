@@ -6,6 +6,8 @@ source ${HOME}/.vim/vimset/.vimrc.bundle
 source ${HOME}/.vim/vimset/.vimrc.basic
 "インデント設定
 source ${HOME}/.vim/vimset/.vimrc.indent
+"Color関連
+source ${HOME}/.vim/vimset/.vimrc.colors
 "表示関連
 source ${HOME}/.vim/vimset/.vimrc.apperance
 "補完関連
@@ -14,8 +16,6 @@ source ${HOME}/.vim/vimset/.vimrc.completion
 source ${HOME}/.vim/vimset/.vimrc.search
 "移動関連
 source ${HOME}/.vim/vimset/.vimrc.moving
-"Color関連
-source ${HOME}/.vim/vimset/.vimrc.colors
 "編集関連
 source ${HOME}/.vim/vimset/.vimrc.editing
 "エンコーディング関連

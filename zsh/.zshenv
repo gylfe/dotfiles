@@ -1,5 +1,6 @@
 # initial setup file for both interactive and noninteractive zsh
 #
+
 case "${OSTYPE}" in
 # Linux ==========================
 linux*)
@@ -94,20 +95,26 @@ darwin*)
     export PATH=${HOME}/.rbenv/shims:${PATH}
     eval   "$(rbenv init - zsh)"
     source /usr/local/opt/rbenv/completions/rbenv.zsh
-    export RUBY_CONFIGURE_OPTS="--with-open-ssl-dir=$(brew --prefix openssl)"
+    export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)"
     export CONFIGURE_OPTS="--enable-shared --with-readline-dir=$(brew --prefix readline) --with-lzo2lib --with-openssl-dir=$(brew --prefix openssl) --with-curl-dir=$(brew --prefix curl)"
   fi
+
+  # python
+  export PATH=/usr/local/share/python:${PATH}
 
   # node.js
   if [[ -d ${HOME}/usr/bin/nodebrew ]]; then
     export NODEBREW_ROOT=${HOME}/usr/bin/nodebrew
     export PATH=${NODEBREW_ROOT}/current/bin:${PATH}
-    source <(npm completion)
     nodebrew use default >/dev/null
+    . <(npm completion)
   fi
 
   # Haskell - cabal
   export PATH=${HOME}/.cabal/bin:${PATH}
+
+  # R
+  export R_HOME=/Library/Frameworks/R.framework/Resources
 
   # Autoload
   autoload zargs

@@ -226,7 +226,7 @@ hi IndentGuidesOdd ctermbg=256
 
 " ---------------------------------------------------------------------
 " milkode
-" 
+"
 command! -nargs=1 Gmilk call s:Gmilk("gmilk -a -n 200", <f-args>)
 
 function! s:Gmilk(cmd, arg)
@@ -242,8 +242,23 @@ function! s:Gmilk(cmd, arg)
 endfunction
 
 " ---------------------------------------------------------------------
+" zen-coding
+"
+let g:user_zen_mode='iv'
+let g:user_zen_settings = {
+      \ 'lang' : 'ja',
+      \ 'html' : {
+      \   'filters' : 'html',
+      \   'indentation' : ' ',
+      \   'snippets' : {
+      \     'jq' : "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js\"></script>\n<script>\n\\$(function() {\n\t|\n})()\n</script>",
+      \   },
+      \ },
+      \}
+
+" ---------------------------------------------------------------------
 " yank
-" 
+"
 
 " "" YankRing
 " let g:yankring_history_dir = '$HOME/.tmp'

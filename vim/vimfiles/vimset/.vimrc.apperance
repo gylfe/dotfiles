@@ -3,14 +3,21 @@ if exists('&ambiwidth')
   set ambiwidth=double
 endif
 
-" 全角スペースを視覚化
-highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=white
-match ZenkakuSpace /　/ 
-" http://d.hatena.ne.jp/magicalhat/20081223/1230013283
+highlight ExtraSpaces ctermbg=blue guibg=blue
+match ExtraSpaces /\s\+$\| \+\ze\t/
+" match ExtraSpaces /\s\+$\|　/
+autocmd WinEnter * match ExtraSpaces /\s\+$\| \+\ze\t/
 
-if has('gui_mac')
-  transparency=4
-end
+" augroup AdditionalHighlights
+"   autocmd! AdditionalHighlights
+"
+"   autocmd ColorScheme * highlight link TrailedSpaces Error
+"   autocmd Syntax * syntax match TrailedSpaces containedin=ALL /\s\+$/
+"
+"   autocmd ColorScheme * highlight link ZenkakuSpace Error
+"   autocmd Syntax * syntax match ZenkakuSpace containedin=ALL /　/
+" augroup END
+
 
 "CurrentLine HighLight
     "highlight CursorLine ctermbg=Black
@@ -18,6 +25,12 @@ end
 
 " escでハイライトoff
 nnoremap <silent> <ESC><ESC> :noh<CR>
+
+
+if has('gui_mac')
+  transparency=4
+end
+
 
 " set statusline+=%{IMStatus('JFixed')}
 

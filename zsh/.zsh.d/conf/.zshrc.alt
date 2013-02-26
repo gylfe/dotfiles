@@ -56,4 +56,6 @@ if [ -f ${HOME}/.zsh/src/z/z.sh ]; then
   add-zsh-hook precmd _z_precmd
 fi
 
+# for apps
+. <(npm completion)
 

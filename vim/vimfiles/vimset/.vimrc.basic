@@ -14,19 +14,16 @@ nnoremap <silent> <Space>rg :<C-u>source $MYGVIMRC<CR>
 " Set augroup.
 augroup MyAutoCmd
   autocmd!
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
 
   autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \   exe "normal g`\"" |
-        \ endif
-
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
 augroup END
-
-
-  autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \   exe "normal g`\"" |
-        \ endif
 
 
 " -------------------------------------------------------------------------
@@ -40,7 +37,7 @@ set showmode      " モード表示
 set showcmd       " コマンドをステータス行に表示
 set cmdheight=1   " コマンドラインは1行で
 set list
-" set listchars=tab:
+" set listchars=trail:-
 set showmatch     " 対になるカッコを強調表示
 set matchtime=2   " showmatch time
 set scrolloff=3   " カーソルの周りは常に3行表示

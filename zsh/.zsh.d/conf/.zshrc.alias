@@ -10,10 +10,19 @@ alias rgrep='find . -name "*.git" -prune -o -type f -print0 | xargs -0 grep'
 alias :q='exit'
 alias ipget='wget -q -O - ipcheck.mycurse.net'
 
+alias rename='noglob zmv -W'
+
+# Git wrapper `gem install hub`
+if [ -x "`which hub 2> /dev/null`" ]; then
+  alias git=hub
+else
+  alias git=git
+fi
+
 case "${OSTYPE}" in
 # linux ----------------------------
 linux*)
-  HISTFILE=~/.log/.zshistry
+  HISTFILE=~/var/log/.zshistry
   alias cp='cp --interactive'
   alias l='ls --color -F'
   alias la='ls --color -a'
@@ -66,7 +75,9 @@ darwin*)
   #for homebrew
   alias b='brew'
   alias bi='brew info'
-  alias bup='brew update'
+  alias bs='brew search'
+  alias bup='brew update; brew upgrade'
+  alias jenkins='java -jar /usr/local/opt/jenkins/libexec/jenkins.war'
 
   disable r  # for R in homebrew
   ;;
