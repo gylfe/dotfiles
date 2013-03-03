@@ -140,7 +140,7 @@ function _judgement_precmd {
   # PROMPT3=
   # PROMPT4=
   
-[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && PROMPT="%{${PROMPT}@${fg[magenta]}%}${HOST%%.*}"
+[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && PROMPT="%{${USER}@${fg[magenta]}%}${HOST%%.*}%# "
 ;
 
 }
