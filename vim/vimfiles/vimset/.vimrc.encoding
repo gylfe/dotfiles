@@ -9,6 +9,8 @@ set backup
 set swapfile
 set backupdir=${HOME}/var/backups/vim
 let &directory=&backupdir
+set undodir=${HOME}/var/backups/vim/undodir
+set undofile
 set history=50
 
 " 文字コードの自動認識

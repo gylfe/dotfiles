@@ -1,7 +1,7 @@
 " -------------------------------------------------------------------------
 " Basic
 " -------------------------------------------------------------------------
-" AutoLoad
+" AutoLoad {{{
 "
 nnoremap <silent> <Space>ev  :<C-u>edit ~/.vim/vimset/<CR>
 " nnoremap <silent> <Space>ev  :<C-u>edit $MYVIMRC<CR>
@@ -10,8 +10,10 @@ nnoremap <silent> <Space>eg  :<C-u>edit $MYGVIMRC<CR>
 " Load .gvimrc after .vimrc edited at GVim.
 nnoremap <silent> <Space>rv :<C-u>source $MYVIMRC \| if has('gui_running') \| source $MYGVIMRC \| endif <CR>
 nnoremap <silent> <Space>rg :<C-u>source $MYGVIMRC<CR>
+" }}}
 
-" Set augroup.
+" Set augroup {{{
+"
 augroup MyAutoCmd
   autocmd!
   autocmd BufReadPost *
@@ -24,10 +26,10 @@ augroup MyAutoCmd
     \   exe "normal g`\"" |
     \ endif
 augroup END
-
+" }}}
 
 " -------------------------------------------------------------------------
-" Display & Information
+" Display & Information {{{
 "
 set number        " 行番号表示
 set ruler         " カーソルの行,列数を非表示 (statuslineを設定するので)
@@ -56,4 +58,4 @@ set backspace=indent,eol,start
 set clipboard+=unnamed,autoselect
 "挿入モードでCtrl+pを押すとクリップボードの内容を貼り付けられるようにする
 imap <C-p>  <ESC>"*pa
-
+" }}}
