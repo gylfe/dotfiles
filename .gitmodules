@@ -1,6 +1,6 @@
 [submodule "luakit/plugins"]
 	path = luakit/plugins
 	url = git://github.com/mason-larobina/luakit-plugins.git
-[submodule "zsh/.zsh.d/antigen"]
-	path = zsh/.zsh.d/antigen
-	url = git://github.com/zsh-users/antigen.git
+[submodule "zsh/.zsh.d/bundle/auto-fu.zsh"]
+	path = zsh/.zsh.d/bundle/auto-fu.zsh
+	url = https://github.com/hchbaw/auto-fu.zsh
