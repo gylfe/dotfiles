@@ -6,7 +6,7 @@
 !/.gitignore
 !/.pryrc
 !/Gemfile
-!.pry/
+# !.pry/
 
 # 頑として無視
 
